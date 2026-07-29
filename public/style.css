@@ -311,6 +311,7 @@ body {
     font-weight: 700;
     font-size: .95rem;
     cursor: pointer;
+    pointer-events: none;
     transition: background var(--transition), box-shadow var(--transition);
 }
 
