@@ -251,6 +251,11 @@ body {
 }
 
 .drop-zone {
+    /* button reset */
+    background: none;
+    font: inherit;
+    color: inherit;
+    width: 100%;
     padding: 64px 40px;
     text-align: center;
     border: 2.5px dashed var(--border);

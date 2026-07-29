@@ -52,7 +52,7 @@ dropZone.addEventListener('drop', e => {
 });
 dropZone.addEventListener('click', () => fileInput.click());
 dropZone.addEventListener('keydown', e => {
-  if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); fileInput.click(); }
+  if (e.key === ' ') e.preventDefault(); // 防止空白鍵捲動頁面
 });
 
 /* ── File Input ── */
