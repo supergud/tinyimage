@@ -252,6 +252,7 @@ body {
 
 .drop-zone {
     /* button reset */
+    display: block;
     background: none;
     font: inherit;
     color: inherit;
