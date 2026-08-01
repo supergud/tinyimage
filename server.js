@@ -9,7 +9,7 @@ app.disable('x-powered-by'); // 避免揭露伺服器框架版本資訊
 // 檔案上傳設定（記憶體儲存，最大 50MB）
 const upload = multer({
   storage: multer.memoryStorage(),
-  limits: { fileSize: 20 * 1024 * 1024 }, // 20 MB
+  limits: { fileSize: 50 * 1024 * 1024 }, // 50 MB
   fileFilter: (req, file, cb) => {
     const allowed = ['image/jpeg', 'image/png', 'image/webp', 'image/gif', 'image/tiff', 'image/avif'];
     if (allowed.includes(file.mimetype)) {
@@ -222,7 +222,7 @@ app.post('/api/crop', upload.single('image'), async (req, res) => {
 // 錯誤處理 middleware
 app.use((err, req, res, next) => {
   if (err.code === 'LIMIT_FILE_SIZE') {
-    return res.status(413).json({ error: '檔案過大，最大支援 20MB' });
+    return res.status(413).json({ error: '檔案過大，最大支援 50MB' });
   }
   res.status(500).json({ error: err.message });
 });
