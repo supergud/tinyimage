@@ -83,6 +83,19 @@ async function getImageDimensions(file) {
   }
 }
 
+function readFileAsDataUrl(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = () => reject(new Error('無法讀取圖片'));
+    reader.readAsDataURL(file);
+  });
+}
+
+function releasePreviewUrl(url) {
+  if (url?.startsWith('blob:')) URL.revokeObjectURL(url);
+}
+
 /* ── File Management ── */
 async function addFiles(files) {
   const MAX_SIZE = 50 * 1024 * 1024;
@@ -92,6 +105,7 @@ async function addFiles(files) {
       continue;
     }
     const dims = await getImageDimensions(file);
+    const previewUrl = await readFileAsDataUrl(file);
     state.files.push({
       id:            uid(),
       file,
@@ -105,7 +119,7 @@ async function addFiles(files) {
       processedBlob: null,
       processedName: null,
       error:         null,
-      previewUrl:    URL.createObjectURL(file),
+      previewUrl,
     });
   }
   render();
@@ -113,7 +127,7 @@ async function addFiles(files) {
 
 function removeFile(id) {
   const entry = state.files.find(f => f.id === id);
-  if (entry?.previewUrl) URL.revokeObjectURL(entry.previewUrl);
+  releasePreviewUrl(entry?.previewUrl);
   state.files = state.files.filter(f => f.id !== id);
   render();
 }
@@ -229,7 +243,7 @@ function triggerDownload(blob, name) {
 
 /* ── Clear All ── */
 clearAllBtn.addEventListener('click', () => {
-  state.files.forEach(f => { if (f.previewUrl) URL.revokeObjectURL(f.previewUrl); });
+  state.files.forEach(f => releasePreviewUrl(f.previewUrl));
   state.files = [];
   render();
 });
@@ -414,17 +428,12 @@ async function processInBrowser(request) {
 
 function loadImage(file) {
   return new Promise((resolve, reject) => {
-    const url = URL.createObjectURL(file);
     const image = new Image();
-    image.onload = () => {
-      URL.revokeObjectURL(url);
-      resolve(image);
-    };
-    image.onerror = () => {
-      URL.revokeObjectURL(url);
-      reject(new Error('無法載入圖片'));
-    };
-    image.src = url;
+    image.onload = () => resolve(image);
+    image.onerror = () => reject(new Error('無法載入圖片'));
+    readFileAsDataUrl(file)
+      .then(url => { image.src = url; })
+      .catch(reject);
   });
 }
 
