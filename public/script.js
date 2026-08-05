@@ -87,7 +87,7 @@ function readFileAsDataUrl(file) {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
     reader.onload = () => resolve(reader.result);
-    reader.onerror = () => reject(new Error('無法讀取圖片'));
+    reader.onerror = () => reject(new Error(i18n.t('error_cannot_read')));
     reader.readAsDataURL(file);
   });
 }
@@ -101,7 +101,7 @@ async function addFiles(files) {
   const MAX_SIZE = 50 * 1024 * 1024;
   for (const file of files) {
     if (file.size > MAX_SIZE) {
-      alert(`「${file.name}」超過 50 MB 限制，已跳過。`);
+      alert(i18n.t('error_max_size', { name: file.name }));
       continue;
     }
     const dims = await getImageDimensions(file);
@@ -177,14 +177,14 @@ function buildActionHtml(entry) {
     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
       <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
       <polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
-    </svg>下載</button>`;
-  const map = {
-    pending:    `<span class="status-tag pending">等待中</span>`,
-    processing: `<span class="status-tag processing"><span class="spinner"></span>處理中</span>`,
+    </svg>${i18n.t('btn_download')}</button>`;
+  const statusMap = {
+    pending:    `<span class="status-tag pending">${i18n.t('status_pending')}</span>`,
+    processing: `<span class="status-tag processing"><span class="spinner"></span>${i18n.t('status_processing')}</span>`,
     done:       dlBtn,
-    error:      `<span class="status-tag error">失敗</span>`,
+    error:      `<span class="status-tag error">${i18n.t('status_error')}</span>`,
   };
-  return map[entry.status] ?? '';
+  return statusMap[entry.status] ?? '';
 }
 
 function buildItem(entry) {
@@ -255,7 +255,7 @@ processAllBtn.addEventListener('click', async () => {
     const w = document.getElementById('crop-width').value.trim();
     const h = document.getElementById('crop-height').value.trim();
     if (!w || !h) {
-      alert('裁切模式需要同時填寫寬度與高度');
+      alert(i18n.t('error_crop_required'));
       return;
     }
   }
@@ -347,7 +347,7 @@ async function processViaApi(request) {
 
   const contentType = resp.headers.get('content-type') || '';
   if (!contentType.startsWith('image/')) {
-    const err = new Error('API 沒有回傳圖片');
+    const err = new Error(i18n.t('error_api_no_image'));
     err.fallbackToBrowser = true;
     throw err;
   }
@@ -381,18 +381,18 @@ async function processInBrowser(request) {
   const originalWidth = image.naturalWidth || image.width;
   const originalHeight = image.naturalHeight || image.height;
 
-  if (!originalWidth || !originalHeight) throw new Error('無法讀取圖片尺寸');
+  if (!originalWidth || !originalHeight) throw new Error(i18n.t('error_cannot_read'));
 
   const canvas = document.createElement('canvas');
   const ctx = canvas.getContext('2d', { alpha: output.mime !== 'image/jpeg' });
-  if (!ctx) throw new Error('瀏覽器不支援圖片處理');
+  if (!ctx) throw new Error(i18n.t('error_no_canvas'));
 
   let outWidth;
   let outHeight;
 
   if (request.mode === 'crop') {
-    outWidth = readPositiveInt(request.width, '裁切寬度');
-    outHeight = readPositiveInt(request.height, '裁切高度');
+    outWidth = readPositiveInt(request.width, i18n.t('label_crop_width'));
+    outHeight = readPositiveInt(request.height, i18n.t('label_crop_height'));
     canvas.width = outWidth;
     canvas.height = outHeight;
 
@@ -430,7 +430,7 @@ function loadImage(file) {
   return new Promise((resolve, reject) => {
     const image = new Image();
     image.onload = () => resolve(image);
-    image.onerror = () => reject(new Error('無法載入圖片'));
+    image.onerror = () => reject(new Error(i18n.t('error_cannot_load')));
     readFileAsDataUrl(file)
       .then(url => { image.src = url; })
       .catch(reject);
@@ -460,7 +460,7 @@ function getResizeBox(widthValue, heightValue, originalWidth, originalHeight) {
 function readPositiveInt(value, label) {
   const n = Number.parseInt(value, 10);
   if (!Number.isFinite(n) || n <= 0 || n > 10000) {
-    throw new Error(`${label} 必須介於 1 到 10000 px`);
+    throw new Error(i18n.t('error_dimension', { label }));
   }
   return n;
 }
@@ -497,7 +497,7 @@ function canvasToBlob(canvas, mime, quality) {
   return new Promise((resolve, reject) => {
     canvas.toBlob(blob => {
       if (blob) resolve(blob);
-      else reject(new Error('無法輸出圖片'));
+      else reject(new Error(i18n.t('error_cannot_output')));
     }, mime, quality);
   });
 }
@@ -518,7 +518,7 @@ downloadAllBtn.addEventListener('click', async () => {
 
   downloadAllBtn.disabled = true;
   const originalLabel = downloadAllBtn.innerHTML;
-  downloadAllBtn.textContent = '打包中…';
+  downloadAllBtn.textContent = i18n.t('error_packing_title');
 
   try {
     const zip = new JSZip();
@@ -526,7 +526,7 @@ downloadAllBtn.addEventListener('click', async () => {
     const content = await zip.generateAsync({ type: 'blob', compression: 'DEFLATE' });
     triggerDownload(content, 'tinyimage_output.zip');
   } catch (err) {
-    alert('打包失敗：' + err.message);
+    alert(i18n.t('error_packing', { error: err.message }));
   } finally {
     downloadAllBtn.disabled = false;
     downloadAllBtn.innerHTML = originalLabel;

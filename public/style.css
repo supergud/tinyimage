@@ -54,6 +54,40 @@ body {
     margin: 0 auto;
 }
 
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.lang-switcher {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.lang-btn {
+    padding: 4px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.lang-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.lang-btn.active {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
 .logo {
     display: inline-flex;
     align-items: center;
@@ -667,6 +701,26 @@ body {
     border-top: 1px solid var(--border);
     background: var(--card);
     margin-top: auto;
+}
+
+.footer-support {
+    margin: 12px 0 0;
+    font-size: 0.85rem;
+}
+
+.footer-support a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.footer-support a:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
 }
 
 /* ── Responsive ── */

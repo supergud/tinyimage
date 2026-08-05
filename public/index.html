@@ -24,19 +24,25 @@
     <!-- ── Header ── -->
     <header class="header">
         <div class="header-inner">
-            <div class="logo">
-                <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
-                    <rect width="36" height="36" rx="10" fill="white" fill-opacity="0.2" />
-                    <rect x="6" y="6" width="10" height="10" rx="2" fill="white" />
-                    <rect x="20" y="6" width="10" height="10" rx="2" fill="white" fill-opacity="0.7" />
-                    <rect x="6" y="20" width="10" height="10" rx="2" fill="white" fill-opacity="0.7" />
-                    <rect x="20" y="20" width="10" height="10" rx="2" fill="white" />
-                    <path d="M16 11 L20 11 M11 16 L11 20 M25 16 L25 20 M16 25 L20 25" stroke="white" stroke-width="1.5"
-                        stroke-linecap="round" />
-                </svg>
-                <h1>TinyImage</h1>
+            <div class="header-top">
+                <div class="logo">
+                    <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+                        <rect width="36" height="36" rx="10" fill="white" fill-opacity="0.2" />
+                        <rect x="6" y="6" width="10" height="10" rx="2" fill="white" />
+                        <rect x="20" y="6" width="10" height="10" rx="2" fill="white" fill-opacity="0.7" />
+                        <rect x="6" y="20" width="10" height="10" rx="2" fill="white" fill-opacity="0.7" />
+                        <rect x="20" y="20" width="10" height="10" rx="2" fill="white" />
+                        <path d="M16 11 L20 11 M11 16 L11 20 M25 16 L25 20 M16 25 L20 25" stroke="white"
+                            stroke-width="1.5" stroke-linecap="round" />
+                    </svg>
+                    <h1>TinyImage</h1>
+                </div>
+                <div class="lang-switcher">
+                    <button class="lang-btn active" data-lang="zh-TW">中文</button>
+                    <button class="lang-btn" data-lang="en">English</button>
+                </div>
             </div>
-            <p class="tagline">智慧圖片壓縮與裁切工具</p>
+            <p class="tagline" data-i18n="tagline">智慧圖片壓縮與裁切工具</p>
         </div>
     </header>
 
@@ -46,7 +52,8 @@
 
             <!-- Mode Tabs -->
             <div class="tabs" role="tablist">
-                <button class="tab-btn active" data-mode="compress" role="tab" aria-selected="true">
+                <button class="tab-btn active" data-mode="compress" role="tab" aria-selected="true"
+                    data-i18n="tab_compress">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
                         stroke-linecap="round" stroke-linejoin="round">
                         <polyline points="4 14 10 14 10 20" />
@@ -56,7 +63,7 @@
                     </svg>
                     壓縮 / 縮小
                 </button>
-                <button class="tab-btn" data-mode="crop" role="tab" aria-selected="false">
+                <button class="tab-btn" data-mode="crop" role="tab" aria-selected="false" data-i18n="tab_crop">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
                         stroke-linecap="round" stroke-linejoin="round">
                         <polyline points="6 2 6 6 2 6" />
@@ -77,8 +84,8 @@
                     <div class="settings-row">
                         <div class="setting-group">
                             <label for="compress-width">
-                                縮小寬度
-                                <span class="badge-optional">選填</span>
+                                <span data-i18n="label_width">縮小寬度</span>
+                                <span class="badge-optional" data-i18n="badge_optional">選填</span>
                             </label>
                             <div class="input-unit">
                                 <input type="number" id="compress-width" min="1" max="10000" placeholder="不限">
@@ -87,8 +94,8 @@
                         </div>
                         <div class="setting-group">
                             <label for="compress-height">
-                                縮小高度
-                                <span class="badge-optional">選填</span>
+                                <span data-i18n="label_height">縮小高度</span>
+                                <span class="badge-optional" data-i18n="badge_optional">選填</span>
                             </label>
                             <div class="input-unit">
                                 <input type="number" id="compress-height" min="1" max="10000" placeholder="不限">
@@ -103,7 +110,7 @@
                             <line x1="12" y1="8" x2="12" y2="12" />
                             <line x1="12" y1="16" x2="12.01" y2="16" />
                         </svg>
-                        留空則維持原始比例，僅做高效壓縮；填寫後等比縮小至指定邊長內
+                        <span data-i18n="hint_resize">留空則維持原始比例，僅做高效壓縮；填寫後等比縮小至指定邊長內</span>
                     </p>
                 </div>
 
@@ -112,8 +119,8 @@
                     <div class="settings-row">
                         <div class="setting-group">
                             <label for="crop-width">
-                                裁切寬度
-                                <span class="badge-required">必填</span>
+                                <span data-i18n="label_crop_width">裁切寬度</span>
+                                <span class="badge-required" data-i18n="badge_required">必填</span>
                             </label>
                             <div class="input-unit">
                                 <input type="number" id="crop-width" min="1" max="10000" placeholder="如 800">
@@ -122,8 +129,8 @@
                         </div>
                         <div class="setting-group">
                             <label for="crop-height">
-                                裁切高度
-                                <span class="badge-required">必填</span>
+                                <span data-i18n="label_crop_height">裁切高度</span>
+                                <span class="badge-required" data-i18n="badge_required">必填</span>
                             </label>
                             <div class="input-unit">
                                 <input type="number" id="crop-height" min="1" max="10000" placeholder="如 600">
@@ -131,18 +138,18 @@
                             </div>
                         </div>
                         <div class="setting-group">
-                            <label for="crop-position">裁切錨點</label>
+                            <label for="crop-position"><span data-i18n="label_crop_position">裁切錨點</span></label>
                             <select id="crop-position">
-                                <option value="centre">⊙ 置中</option>
-                                <option value="north">↑ 上方</option>
-                                <option value="south">↓ 下方</option>
-                                <option value="east">→ 右側</option>
-                                <option value="west">← 左側</option>
-                                <option value="northwest">↖ 左上</option>
-                                <option value="northeast">↗ 右上</option>
-                                <option value="southwest">↙ 左下</option>
-                                <option value="southeast">↘ 右下</option>
-                                <option value="attention">🔍 智慧辨識</option>
+                                <option value="centre" data-i18n="crop_centre">⊙ 置中</option>
+                                <option value="north" data-i18n="crop_north">↑ 上方</option>
+                                <option value="south" data-i18n="crop_south">↓ 下方</option>
+                                <option value="east" data-i18n="crop_east">→ 右側</option>
+                                <option value="west" data-i18n="crop_west">← 左側</option>
+                                <option value="northwest" data-i18n="crop_northwest">↖ 左上</option>
+                                <option value="northeast" data-i18n="crop_northeast">↗ 右上</option>
+                                <option value="southwest" data-i18n="crop_southwest">↙ 左下</option>
+                                <option value="southeast" data-i18n="crop_southeast">↘ 右下</option>
+                                <option value="attention" data-i18n="crop_attention">🔍 智慧辨識</option>
                             </select>
                         </div>
                     </div>
@@ -153,7 +160,7 @@
                             <line x1="12" y1="8" x2="12" y2="12" />
                             <line x1="12" y1="16" x2="12.01" y2="16" />
                         </svg>
-                        圖片將裁切為精確的指定尺寸，超出部分依錨點方向裁去
+                        <span data-i18n="hint_crop">圖片將裁切為精確的指定尺寸，超出部分依錨點方向裁去</span>
                     </p>
                 </div>
             </div>
@@ -167,27 +174,28 @@
                         <circle cx="8.5" cy="8.5" r="1.5" />
                         <polyline points="21 15 16 10 5 21" />
                     </svg>
-                    <p class="drop-title">拖曳圖片到此處</p>
-                    <p class="drop-or">— 或 —</p>
-                    <span class="btn-upload">選擇圖片</span>
+                    <p class="drop-title" data-i18n="drop_title">拖曳圖片到此處</p>
+                    <p class="drop-or" data-i18n="drop_or">— 或 —</p>
+                    <span class="btn-upload" data-i18n="drop_btn">選擇圖片</span>
                     <input type="file" id="file-input" accept="image/jpeg,image/png,image/webp,image/gif,image/avif"
                         multiple hidden aria-label="選擇圖片">
-                    <p class="drop-hint">支援 JPG · PNG · WebP &nbsp;·&nbsp; 單檔最大 50 MB</p>
+                    <p class="drop-hint" data-i18n="drop_hint">支援 JPG · PNG · WebP · GIF · AVIF 　　單檔最大 50 MB</p>
                 </button>
             </div>
 
             <!-- File List Section -->
             <section class="file-list-section" id="file-list-section" hidden>
                 <div class="file-list-header">
-                    <h2>處理清單（<span id="file-count">0</span> 個檔案）</h2>
+                    <h2><span data-i18n="file_list_header_prefix">處理清單</span>（<span id="file-count">0</span> <span
+                            data-i18n="file_list_header_suffix">個檔案</span>）</h2>
                     <div class="header-actions">
-                        <button class="btn-ghost" id="clear-all">清除全部</button>
+                        <button class="btn-ghost" id="clear-all" data-i18n="btn_clear_all">清除全部</button>
                         <button class="btn-primary" id="process-all">
                             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
                                 <polygon points="5 3 19 12 5 21 5 3" />
                             </svg>
-                            開始處理
+                            <span data-i18n="btn_process_all">開始處理</span>
                         </button>
                     </div>
                 </div>
@@ -202,7 +210,7 @@
                             <polyline points="7 10 12 15 17 10" />
                             <line x1="12" y1="15" x2="12" y2="3" />
                         </svg>
-                        全部下載（ZIP）
+                        <span data-i18n="btn_download_all">全部下載（ZIP）</span>
                     </button>
                 </div>
             </section>
@@ -211,13 +219,20 @@
     </main>
 
     <footer class="footer">
-        <p>TinyImage — 本地圖片壓縮，檔案不會上傳至任何伺服器</p>
+        <p data-i18n="footer">TinyImage — 本地圖片壓縮，檔案不會上傳至任何伺服器</p>
+        <p class="footer-support">
+            <a href="https://buymeacoffee.com/supergud" target="_blank" rel="noopener noreferrer"
+                data-i18n="coffee_link">
+                ☕ Buy me a coffee
+            </a>
+        </p>
     </footer>
 
     <!-- JSZip for batch download -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"
         integrity="sha512-XMVd28F1oH/O71fzwBnV7HucLxVwtxf26XV8P4wPk26EDxuGZ91N8bsOttmnomcCD3CS5ZMRL50H0GgOHvegtg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="i18n.js"></script>
     <script src="script.js"></script>
 </body>
 
