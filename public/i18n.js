@@ -23,7 +23,7 @@ const i18n = {
       // Header & Footer
       'tagline': '智慧圖片壓縮與裁切工具',
       'footer': 'TinyImage — 本地圖片壓縮，檔案不會上傳至任何伺服器',
-      'copyright': '© 2026 TinyImage。版權所有。',
+      'copyright': '© 2026 Bruce Lee · TinyImage。版權所有。',
       'language_switcher': '語言選擇',
       
       // Tabs
@@ -104,7 +104,7 @@ const i18n = {
       // Header & Footer
       'tagline': 'Smart Image Compression & Crop Tool',
       'footer': 'TinyImage — Image compression locally, files are never uploaded to any server',
-      'copyright': '© 2026 TinyImage. All rights reserved.',
+      'copyright': '© 2026 Bruce Lee · TinyImage. All rights reserved.',
       'language_switcher': 'Language selection',
       
       // Tabs
