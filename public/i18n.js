@@ -1,12 +1,30 @@
 // ── i18n Translation System ──
+const supportedLanguages = ['zh-TW', 'en'];
+
+function getBrowserLanguage() {
+  const browserLanguages = typeof navigator !== 'undefined'
+    ? (navigator.languages?.length ? navigator.languages : [navigator.language])
+    : [];
+  const preferredLanguage = browserLanguages.find(Boolean)?.toLowerCase() || '';
+
+  return preferredLanguage.startsWith('zh') ? 'zh-TW' : 'en';
+}
+
+function getInitialLanguage() {
+  const savedLanguage = localStorage.getItem('tinyimage_lang');
+  return supportedLanguages.includes(savedLanguage) ? savedLanguage : getBrowserLanguage();
+}
+
 const i18n = {
-  currentLang: localStorage.getItem('tinyimage_lang') || 'zh-TW',
+  currentLang: getInitialLanguage(),
   
   translations: {
     'zh-TW': {
       // Header & Footer
       'tagline': '智慧圖片壓縮與裁切工具',
       'footer': 'TinyImage — 本地圖片壓縮，檔案不會上傳至任何伺服器',
+      'copyright': '© 2026 TinyImage。版權所有。',
+      'language_switcher': '語言選擇',
       
       // Tabs
       'tab_compress': '壓縮 / 縮小',
@@ -26,6 +44,11 @@ const i18n = {
       // Hints
       'hint_resize': '留空則維持原始比例，僅做高效壓縮；填寫後等比縮小至指定邊長內',
       'hint_crop': '圖片將裁切為精確的指定尺寸，超出部分依錨點方向裁去',
+
+      // Placeholders
+      'placeholder_unlimited': '不限',
+      'placeholder_crop_width': '如 800',
+      'placeholder_crop_height': '如 600',
       
       // Upload area
       'drop_title': '拖曳圖片到此處',
@@ -81,6 +104,8 @@ const i18n = {
       // Header & Footer
       'tagline': 'Smart Image Compression & Crop Tool',
       'footer': 'TinyImage — Image compression locally, files are never uploaded to any server',
+      'copyright': '© 2026 TinyImage. All rights reserved.',
+      'language_switcher': 'Language selection',
       
       // Tabs
       'tab_compress': 'Compress / Resize',
@@ -100,6 +125,11 @@ const i18n = {
       // Hints
       'hint_resize': 'Leave empty to maintain original aspect ratio with efficient compression; fill in to scale down proportionally to specified edge length',
       'hint_crop': 'Image will be cropped to exact specified dimensions, overflow will be cropped based on anchor direction',
+
+      // Placeholders
+      'placeholder_unlimited': 'No limit',
+      'placeholder_crop_width': 'e.g. 800',
+      'placeholder_crop_height': 'e.g. 600',
       
       // Upload area
       'drop_title': 'Drag images here',
@@ -177,12 +207,23 @@ const i18n = {
       el.textContent = this.t(key);
     });
 
+    // Update translated element attributes such as input placeholders.
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+      el.placeholder = this.t(el.dataset.i18nPlaceholder);
+    });
+
+    document.querySelectorAll('[data-i18n-aria-label]').forEach(el => {
+      el.setAttribute('aria-label', this.t(el.dataset.i18nAriaLabel));
+    });
+
     // Update html lang attribute
     document.documentElement.lang = this.currentLang === 'en' ? 'en' : 'zh-TW';
     
     // Update language button active state
     document.querySelectorAll('.lang-btn').forEach(btn => {
-      btn.classList.toggle('active', btn.dataset.lang === this.currentLang);
+      const isActive = btn.dataset.lang === this.currentLang;
+      btn.classList.toggle('active', isActive);
+      btn.setAttribute('aria-pressed', String(isActive));
     });
   },
 

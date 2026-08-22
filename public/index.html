@@ -37,9 +37,15 @@
                     </svg>
                     <h1>TinyImage</h1>
                 </div>
-                <div class="lang-switcher">
-                    <button class="lang-btn active" data-lang="zh-TW">中文</button>
-                    <button class="lang-btn" data-lang="en">English</button>
+                <div class="lang-switcher" role="group" aria-label="語言選擇" data-i18n-aria-label="language_switcher">
+                    <button class="lang-btn active" data-lang="zh-TW" type="button" aria-pressed="true">
+                        <span class="lang-code">中</span>
+                        <span class="lang-name">中文</span>
+                    </button>
+                    <button class="lang-btn" data-lang="en" type="button" aria-pressed="false">
+                        <span class="lang-code">EN</span>
+                        <span class="lang-name">English</span>
+                    </button>
                 </div>
             </div>
             <p class="tagline" data-i18n="tagline">智慧圖片壓縮與裁切工具</p>
@@ -52,8 +58,7 @@
 
             <!-- Mode Tabs -->
             <div class="tabs" role="tablist">
-                <button class="tab-btn active" data-mode="compress" role="tab" aria-selected="true"
-                    data-i18n="tab_compress">
+                <button class="tab-btn active" data-mode="compress" role="tab" aria-selected="true">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
                         stroke-linecap="round" stroke-linejoin="round">
                         <polyline points="4 14 10 14 10 20" />
@@ -61,9 +66,9 @@
                         <line x1="14" y1="10" x2="21" y2="3" />
                         <line x1="3" y1="21" x2="10" y2="14" />
                     </svg>
-                    壓縮 / 縮小
+                    <span data-i18n="tab_compress">壓縮 / 縮小</span>
                 </button>
-                <button class="tab-btn" data-mode="crop" role="tab" aria-selected="false" data-i18n="tab_crop">
+                <button class="tab-btn" data-mode="crop" role="tab" aria-selected="false">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
                         stroke-linecap="round" stroke-linejoin="round">
                         <polyline points="6 2 6 6 2 6" />
@@ -72,7 +77,7 @@
                         <path d="M6 6H4" />
                         <path d="M18 18h2" />
                     </svg>
-                    裁切並壓縮
+                    <span data-i18n="tab_crop">裁切並壓縮</span>
                 </button>
             </div>
 
@@ -88,7 +93,8 @@
                                 <span class="badge-optional" data-i18n="badge_optional">選填</span>
                             </label>
                             <div class="input-unit">
-                                <input type="number" id="compress-width" min="1" max="10000" placeholder="不限">
+                                <input type="number" id="compress-width" min="1" max="10000"
+                                    placeholder="不限" data-i18n-placeholder="placeholder_unlimited">
                                 <span>px</span>
                             </div>
                         </div>
@@ -98,7 +104,8 @@
                                 <span class="badge-optional" data-i18n="badge_optional">選填</span>
                             </label>
                             <div class="input-unit">
-                                <input type="number" id="compress-height" min="1" max="10000" placeholder="不限">
+                                <input type="number" id="compress-height" min="1" max="10000"
+                                    placeholder="不限" data-i18n-placeholder="placeholder_unlimited">
                                 <span>px</span>
                             </div>
                         </div>
@@ -123,7 +130,8 @@
                                 <span class="badge-required" data-i18n="badge_required">必填</span>
                             </label>
                             <div class="input-unit">
-                                <input type="number" id="crop-width" min="1" max="10000" placeholder="如 800">
+                                <input type="number" id="crop-width" min="1" max="10000" placeholder="如 800"
+                                    data-i18n-placeholder="placeholder_crop_width">
                                 <span>px</span>
                             </div>
                         </div>
@@ -133,7 +141,8 @@
                                 <span class="badge-required" data-i18n="badge_required">必填</span>
                             </label>
                             <div class="input-unit">
-                                <input type="number" id="crop-height" min="1" max="10000" placeholder="如 600">
+                                <input type="number" id="crop-height" min="1" max="10000" placeholder="如 600"
+                                    data-i18n-placeholder="placeholder_crop_height">
                                 <span>px</span>
                             </div>
                         </div>
@@ -220,6 +229,7 @@
 
     <footer class="footer">
         <p data-i18n="footer">TinyImage — 本地圖片壓縮，檔案不會上傳至任何伺服器</p>
+        <p class="footer-copyright" data-i18n="copyright">© 2026 TinyImage。版權所有。</p>
         <p class="footer-support">
             <a href="https://buymeacoffee.com/supergud" target="_blank" rel="noopener noreferrer"
                 data-i18n="coffee_link">
