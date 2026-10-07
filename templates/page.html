@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<!-- 此檔由 scripts/build.js 產生，請修改 templates/ 與 locales/ 後執行 npm run build -->
+<html lang="{{htmlLang}}" data-locale="{{slug}}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{meta.title}}</title>
+    <meta name="description" content="{{meta.description}}">
+    <meta name="keywords" content="{{meta.keywords}}">
+    <link rel="canonical" href="{{url}}">
+{{{hreflangLinks}}}
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="TinyImage">
+    <meta property="og:title" content="{{meta.title}}">
+    <meta property="og:description" content="{{meta.description}}">
+    <meta property="og:url" content="{{url}}">
+    <meta property="og:locale" content="{{ogLocale}}">
+{{{ogAlternates}}}
+    <meta name="twitter:card" content="summary">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="stylesheet" href="/style.css?v={{version}}">
+    <script type="application/ld+json">{{{jsonLd}}}</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3790828781240420"
+        crossorigin="anonymous"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7Z28EXGCYH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-7Z28EXGCYH');
+    </script>
+</head>
+
+<body>
+
+    <!-- ── Header ── -->
+    <header class="header">
+        <div class="header-inner">
+            <div class="header-top">
+                <a class="logo" href="/{{slug}}/">
+                    <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+                        <rect width="36" height="36" rx="10" fill="white" fill-opacity="0.2" />
+                        <rect x="6" y="6" width="10" height="10" rx="2" fill="white" />
+                        <rect x="20" y="6" width="10" height="10" rx="2" fill="white" fill-opacity="0.7" />
+                        <rect x="6" y="20" width="10" height="10" rx="2" fill="white" fill-opacity="0.7" />
+                        <rect x="20" y="20" width="10" height="10" rx="2" fill="white" />
+                        <path d="M16 11 L20 11 M11 16 L11 20 M25 16 L25 20 M16 25 L20 25" stroke="white"
+                            stroke-width="1.5" stroke-linecap="round" />
+                    </svg>
+                    <span class="logo-text">TinyImage</span>
+                </a>
+                <details class="lang-menu">
+                    <summary aria-label="{{ui.language_switcher}}">
+                        <svg class="lang-icon" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                            aria-hidden="true">
+                            <circle cx="12" cy="12" r="9" />
+                            <path d="M3 12h18M12 3c2.2 2.4 3.3 5.4 3.3 9s-1.1 6.6-3.3 9c-2.2-2.4-3.3-5.4-3.3-9S9.8 5.4 12 3Z" />
+                        </svg>
+                        <span>{{name}}</span>
+                        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <polyline points="6 9 12 15 18 9" />
+                        </svg>
+                    </summary>
+                    <ul class="lang-list">
+{{{langLinks}}}
+                    </ul>
+                </details>
+            </div>
+            <h1 class="tagline">{{h1}}</h1>
+        </div>
+    </header>
+
+    <!-- ── Main ── -->
+    <main class="main">
+        <div class="container">
+
+            <!-- Mode Tabs -->
+            <div class="tabs" role="tablist">
+                <button class="tab-btn active" data-mode="compress" role="tab" aria-selected="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <polyline points="4 14 10 14 10 20" />
+                        <polyline points="20 10 14 10 14 4" />
+                        <line x1="14" y1="10" x2="21" y2="3" />
+                        <line x1="3" y1="21" x2="10" y2="14" />
+                    </svg>
+                    <span>{{ui.tab_compress}}</span>
+                </button>
+                <button class="tab-btn" data-mode="crop" role="tab" aria-selected="false">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <polyline points="6 2 6 6 2 6" />
+                        <polyline points="18 22 18 18 22 18" />
+                        <path d="M6 18H16a2 2 0 0 0 2-2V6" />
+                        <path d="M6 6H4" />
+                        <path d="M18 18h2" />
+                    </svg>
+                    <span>{{ui.tab_crop}}</span>
+                </button>
+            </div>
+
+            <!-- Settings Card -->
+            <div class="card settings-card">
+
+                <!-- 壓縮設定 -->
+                <div class="settings-panel" id="compress-settings">
+                    <div class="settings-row">
+                        <div class="setting-group">
+                            <label for="compress-width">
+                                <span>{{ui.label_width}}</span>
+                                <span class="badge-optional">{{ui.badge_optional}}</span>
+                            </label>
+                            <div class="input-unit">
+                                <input type="number" id="compress-width" min="1" max="10000"
+                                    placeholder="{{ui.placeholder_unlimited}}">
+                                <span>px</span>
+                            </div>
+                        </div>
+                        <div class="setting-group">
+                            <label for="compress-height">
+                                <span>{{ui.label_height}}</span>
+                                <span class="badge-optional">{{ui.badge_optional}}</span>
+                            </label>
+                            <div class="input-unit">
+                                <input type="number" id="compress-height" min="1" max="10000"
+                                    placeholder="{{ui.placeholder_unlimited}}">
+                                <span>px</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="hint">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="12" y1="8" x2="12" y2="12" />
+                            <line x1="12" y1="16" x2="12.01" y2="16" />
+                        </svg>
+                        <span>{{ui.hint_resize}}</span>
+                    </p>
+                </div>
+
+                <!-- 裁切設定 -->
+                <div class="settings-panel hidden" id="crop-settings">
+                    <div class="crop-presets" id="crop-presets">
+                        <div class="preset-title">{{ui.label_crop_preset}}</div>
+{{{presetGroups}}}
+                    </div>
+                    <div class="settings-row">
+                        <div class="setting-group">
+                            <label for="crop-width">
+                                <span>{{ui.label_crop_width}}</span>
+                                <span class="badge-required">{{ui.badge_required}}</span>
+                            </label>
+                            <div class="input-unit">
+                                <input type="number" id="crop-width" min="1" max="10000"
+                                    placeholder="{{ui.placeholder_crop_width}}">
+                                <span>px</span>
+                            </div>
+                        </div>
+                        <div class="setting-group">
+                            <label for="crop-height">
+                                <span>{{ui.label_crop_height}}</span>
+                                <span class="badge-required">{{ui.badge_required}}</span>
+                            </label>
+                            <div class="input-unit">
+                                <input type="number" id="crop-height" min="1" max="10000"
+                                    placeholder="{{ui.placeholder_crop_height}}">
+                                <span>px</span>
+                            </div>
+                        </div>
+                        <div class="setting-group">
+                            <label for="crop-position"><span>{{ui.label_crop_position}}</span></label>
+                            <select id="crop-position">
+                                <option value="centre">{{ui.crop_centre}}</option>
+                                <option value="north">{{ui.crop_north}}</option>
+                                <option value="south">{{ui.crop_south}}</option>
+                                <option value="east">{{ui.crop_east}}</option>
+                                <option value="west">{{ui.crop_west}}</option>
+                                <option value="northwest">{{ui.crop_northwest}}</option>
+                                <option value="northeast">{{ui.crop_northeast}}</option>
+                                <option value="southwest">{{ui.crop_southwest}}</option>
+                                <option value="southeast">{{ui.crop_southeast}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <p class="hint">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="12" y1="8" x2="12" y2="12" />
+                            <line x1="12" y1="16" x2="12.01" y2="16" />
+                        </svg>
+                        <span>{{ui.hint_crop}}</span>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Upload Card -->
+            <div class="card upload-card" id="upload-card">
+                <button class="drop-zone" id="drop-zone" type="button" aria-label="{{ui.drop_btn}}">
+                    <svg class="drop-icon" width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                        <circle cx="8.5" cy="8.5" r="1.5" />
+                        <polyline points="21 15 16 10 5 21" />
+                    </svg>
+                    <p class="drop-title">{{ui.drop_title}}</p>
+                    <p class="drop-or">{{ui.drop_or}}</p>
+                    <span class="btn-upload">{{ui.drop_btn}}</span>
+                    <input type="file" id="file-input" accept="image/jpeg,image/png,image/webp,image/gif,image/avif"
+                        multiple hidden aria-label="{{ui.drop_btn}}">
+                    <p class="drop-hint">{{ui.drop_hint}}</p>
+                </button>
+            </div>
+
+            <!-- File List Section -->
+            <section class="file-list-section" id="file-list-section" hidden>
+                <div class="file-list-header">
+                    <h2>{{ui.file_list_header_prefix}} (<span id="file-count">0</span>)</h2>
+                    <div class="header-actions">
+                        <button class="btn-ghost" id="clear-all">{{ui.btn_clear_all}}</button>
+                        <button class="btn-primary" id="process-all">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <polygon points="5 3 19 12 5 21 5 3" />
+                            </svg>
+                            <span>{{ui.btn_process_all}}</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="file-list" id="file-list"></div>
+
+                <div class="download-all-bar" id="download-all-bar" hidden>
+                    <button class="btn-download-all" id="download-all">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                            <polyline points="7 10 12 15 17 10" />
+                            <line x1="12" y1="15" x2="12" y2="3" />
+                        </svg>
+                        <span>{{ui.btn_download_all}}</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- ── SEO 內容：功能說明、在地使用情境、FAQ ── -->
+            <section class="seo-section" aria-labelledby="features-title">
+                <h2 id="features-title">{{features.title}}</h2>
+                <p class="seo-intro">{{features.intro}}</p>
+                <div class="seo-grid">
+{{{featureItems}}}
+                </div>
+            </section>
+
+            <section class="seo-section" aria-labelledby="usecases-title">
+                <h2 id="usecases-title">{{useCases.title}}</h2>
+                <div class="seo-grid">
+{{{useCaseItems}}}
+                </div>
+            </section>
+
+            <section class="seo-section" aria-labelledby="faq-title">
+                <h2 id="faq-title">{{faq.title}}</h2>
+                <div class="faq-list">
+{{{faqItems}}}
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>{{ui.footer}}</p>
+        <p class="footer-copyright">{{ui.copyright}}</p>
+        <p class="footer-support">
+            <a href="https://buymeacoffee.com/supergud" target="_blank" rel="noopener noreferrer">{{ui.coffee_link}}</a>
+        </p>
+    </footer>
+
+    <!-- JSZip for batch download -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"
+        integrity="sha512-XMVd28F1oH/O71fzwBnV7HucLxVwtxf26XV8P4wPk26EDxuGZ91N8bsOttmnomcCD3CS5ZMRL50H0GgOHvegtg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="/i18n.js?v={{version}}"></script>
+    <script src="/script.js?v={{version}}"></script>
+</body>
+
+</html>

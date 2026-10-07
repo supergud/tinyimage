@@ -1,17 +1,22 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<!-- 此檔由 scripts/build.js 產生，請勿直接修改 -->
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TinyImage — 圖片壓縮工具</title>
-    <meta name="description" content="TinyImage 免費線上圖片壓縮與裁切工具，支援 JPG、PNG、WebP，快速縮小檔案大小並維持畫質。">
+    <title>TinyImage — Free Online Image Compressor &amp; Cropper</title>
+    <meta name="description" content="Free online image compressor and cropper that runs entirely in your browser. Available in 繁體中文, English, 日本語, 한국어, Español and Português.">
     <link rel="canonical" href="https://tinyimage.eat2die.com/">
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="stylesheet" href="style.css?v=20261007-3">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3790828781240420"
-        crossorigin="anonymous"></script>
-    <!-- Google tag (gtag.js) -->
+    <link rel="alternate" hreflang="zh-TW" href="https://tinyimage.eat2die.com/zh-tw/">
+    <link rel="alternate" hreflang="en" href="https://tinyimage.eat2die.com/en/">
+    <link rel="alternate" hreflang="ja" href="https://tinyimage.eat2die.com/ja/">
+    <link rel="alternate" hreflang="ko" href="https://tinyimage.eat2die.com/ko/">
+    <link rel="alternate" hreflang="es" href="https://tinyimage.eat2die.com/es/">
+    <link rel="alternate" hreflang="pt" href="https://tinyimage.eat2die.com/pt/">
+    <link rel="alternate" hreflang="x-default" href="https://tinyimage.eat2die.com/">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="stylesheet" href="/style.css?v=20261007-5">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-7Z28EXGCYH"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -22,258 +27,32 @@
 </head>
 
 <body>
-
-    <!-- ── Header ── -->
     <header class="header">
         <div class="header-inner">
-            <div class="header-top">
-                <div class="logo">
-                    <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
-                        <rect width="36" height="36" rx="10" fill="white" fill-opacity="0.2" />
-                        <rect x="6" y="6" width="10" height="10" rx="2" fill="white" />
-                        <rect x="20" y="6" width="10" height="10" rx="2" fill="white" fill-opacity="0.7" />
-                        <rect x="6" y="20" width="10" height="10" rx="2" fill="white" fill-opacity="0.7" />
-                        <rect x="20" y="20" width="10" height="10" rx="2" fill="white" />
-                        <path d="M16 11 L20 11 M11 16 L11 20 M25 16 L25 20 M16 25 L20 25" stroke="white"
-                            stroke-width="1.5" stroke-linecap="round" />
-                    </svg>
-                    <h1>TinyImage</h1>
-                </div>
-                <div class="lang-switcher" role="group" aria-label="語言選擇" data-i18n-aria-label="language_switcher">
-                    <svg class="lang-icon" width="15" height="15" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
-                        aria-hidden="true">
-                        <circle cx="12" cy="12" r="9" />
-                        <path d="M3 12h18M12 3c2.2 2.4 3.3 5.4 3.3 9s-1.1 6.6-3.3 9c-2.2-2.4-3.3-5.4-3.3-9S9.8 5.4 12 3Z" />
-                    </svg>
-                    <button class="lang-btn active" data-lang="zh-TW" type="button" aria-pressed="true">
-                        <span class="lang-name">中文</span>
-                    </button>
-                    <button class="lang-btn" data-lang="en" type="button" aria-pressed="false">
-                        <span class="lang-name">EN</span>
-                    </button>
-                </div>
+            <div class="header-top header-top-center">
+                <span class="logo"><span class="logo-text">TinyImage</span></span>
             </div>
-            <p class="tagline" data-i18n="tagline">智慧圖片壓縮與裁切工具</p>
+            <h1 class="tagline">Free Online Image Compressor &amp; Cropper</h1>
         </div>
     </header>
 
-    <!-- ── Main ── -->
     <main class="main">
         <div class="container">
-
-            <!-- Mode Tabs -->
-            <div class="tabs" role="tablist">
-                <button class="tab-btn active" data-mode="compress" role="tab" aria-selected="true">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="4 14 10 14 10 20" />
-                        <polyline points="20 10 14 10 14 4" />
-                        <line x1="14" y1="10" x2="21" y2="3" />
-                        <line x1="3" y1="21" x2="10" y2="14" />
-                    </svg>
-                    <span data-i18n="tab_compress">壓縮 / 縮小</span>
-                </button>
-                <button class="tab-btn" data-mode="crop" role="tab" aria-selected="false">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="6 2 6 6 2 6" />
-                        <polyline points="18 22 18 18 22 18" />
-                        <path d="M6 18H16a2 2 0 0 0 2-2V6" />
-                        <path d="M6 6H4" />
-                        <path d="M18 18h2" />
-                    </svg>
-                    <span data-i18n="tab_crop">裁切並壓縮</span>
-                </button>
-            </div>
-
-            <!-- Settings Card -->
-            <div class="card settings-card">
-
-                <!-- 壓縮設定 -->
-                <div class="settings-panel" id="compress-settings">
-                    <div class="settings-row">
-                        <div class="setting-group">
-                            <label for="compress-width">
-                                <span data-i18n="label_width">縮小寬度</span>
-                                <span class="badge-optional" data-i18n="badge_optional">選填</span>
-                            </label>
-                            <div class="input-unit">
-                                <input type="number" id="compress-width" min="1" max="10000"
-                                    placeholder="不限" data-i18n-placeholder="placeholder_unlimited">
-                                <span>px</span>
-                            </div>
-                        </div>
-                        <div class="setting-group">
-                            <label for="compress-height">
-                                <span data-i18n="label_height">縮小高度</span>
-                                <span class="badge-optional" data-i18n="badge_optional">選填</span>
-                            </label>
-                            <div class="input-unit">
-                                <input type="number" id="compress-height" min="1" max="10000"
-                                    placeholder="不限" data-i18n-placeholder="placeholder_unlimited">
-                                <span>px</span>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="hint">
-                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="10" />
-                            <line x1="12" y1="8" x2="12" y2="12" />
-                            <line x1="12" y1="16" x2="12.01" y2="16" />
-                        </svg>
-                        <span data-i18n="hint_resize">留空則維持原始比例，僅做高效壓縮；填寫後等比縮小至指定邊長內</span>
-                    </p>
-                </div>
-
-                <!-- 裁切設定 -->
-                <div class="settings-panel hidden" id="crop-settings">
-                    <div class="crop-presets" id="crop-presets">
-                        <div class="preset-title" data-i18n="label_crop_preset">常用尺寸</div>
-                        <div class="preset-group">
-                            <span class="preset-platform">Facebook</span>
-                            <button type="button" class="preset-btn" data-width="1080" data-height="1080"><span data-i18n="preset_square">方形 1:1</span><small>1080×1080</small></button>
-                            <button type="button" class="preset-btn" data-width="1080" data-height="1350"><span data-i18n="preset_portrait45">直式 4:5</span><small>1080×1350</small></button>
-                            <button type="button" class="preset-btn" data-width="1200" data-height="630"><span data-i18n="preset_link">連結分享圖</span><small>1200×630</small></button>
-                            <button type="button" class="preset-btn" data-width="851" data-height="315"><span data-i18n="preset_cover">粉專封面</span><small>851×315</small></button>
-                            <button type="button" class="preset-btn" data-width="1080" data-height="1920"><span data-i18n="preset_story">限時動態</span><small>1080×1920</small></button>
-                        </div>
-                        <div class="preset-group">
-                            <span class="preset-platform">Instagram</span>
-                            <button type="button" class="preset-btn" data-width="1080" data-height="1080"><span data-i18n="preset_square">方形 1:1</span><small>1080×1080</small></button>
-                            <button type="button" class="preset-btn" data-width="1080" data-height="1350"><span data-i18n="preset_portrait45">直式 4:5</span><small>1080×1350</small></button>
-                            <button type="button" class="preset-btn" data-width="1080" data-height="566"><span data-i18n="preset_landscape">橫式 1.91:1</span><small>1080×566</small></button>
-                            <button type="button" class="preset-btn" data-width="1080" data-height="1920"><span data-i18n="preset_story_reels">限動／Reels</span><small>1080×1920</small></button>
-                            <button type="button" class="preset-btn" data-width="320" data-height="320"><span data-i18n="preset_profile">大頭貼</span><small>320×320</small></button>
-                        </div>
-                        <div class="preset-group">
-                            <span class="preset-platform">Threads</span>
-                            <button type="button" class="preset-btn" data-width="1080" data-height="1080"><span data-i18n="preset_square">方形 1:1</span><small>1080×1080</small></button>
-                            <button type="button" class="preset-btn" data-width="1080" data-height="1440"><span data-i18n="preset_portrait34">直式 3:4</span><small>1080×1440</small></button>
-                            <button type="button" class="preset-btn" data-width="1080" data-height="1350"><span data-i18n="preset_portrait45">直式 4:5</span><small>1080×1350</small></button>
-                        </div>
-                    </div>
-                    <div class="settings-row">
-                        <div class="setting-group">
-                            <label for="crop-width">
-                                <span data-i18n="label_crop_width">裁切寬度</span>
-                                <span class="badge-required" data-i18n="badge_required">必填</span>
-                            </label>
-                            <div class="input-unit">
-                                <input type="number" id="crop-width" min="1" max="10000" placeholder="如 800"
-                                    data-i18n-placeholder="placeholder_crop_width">
-                                <span>px</span>
-                            </div>
-                        </div>
-                        <div class="setting-group">
-                            <label for="crop-height">
-                                <span data-i18n="label_crop_height">裁切高度</span>
-                                <span class="badge-required" data-i18n="badge_required">必填</span>
-                            </label>
-                            <div class="input-unit">
-                                <input type="number" id="crop-height" min="1" max="10000" placeholder="如 600"
-                                    data-i18n-placeholder="placeholder_crop_height">
-                                <span>px</span>
-                            </div>
-                        </div>
-                        <div class="setting-group">
-                            <label for="crop-position"><span data-i18n="label_crop_position">裁切錨點</span></label>
-                            <select id="crop-position">
-                                <option value="centre" data-i18n="crop_centre">⊙ 置中</option>
-                                <option value="north" data-i18n="crop_north">↑ 上方</option>
-                                <option value="south" data-i18n="crop_south">↓ 下方</option>
-                                <option value="east" data-i18n="crop_east">→ 右側</option>
-                                <option value="west" data-i18n="crop_west">← 左側</option>
-                                <option value="northwest" data-i18n="crop_northwest">↖ 左上</option>
-                                <option value="northeast" data-i18n="crop_northeast">↗ 右上</option>
-                                <option value="southwest" data-i18n="crop_southwest">↙ 左下</option>
-                                <option value="southeast" data-i18n="crop_southeast">↘ 右下</option>
-                            </select>
-                        </div>
-                    </div>
-                    <p class="hint">
-                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="10" />
-                            <line x1="12" y1="8" x2="12" y2="12" />
-                            <line x1="12" y1="16" x2="12.01" y2="16" />
-                        </svg>
-                        <span data-i18n="hint_crop">圖片將裁切為精確的指定尺寸，超出部分依錨點方向裁去</span>
-                    </p>
-                </div>
-            </div>
-
-            <!-- Upload Card -->
-            <div class="card upload-card" id="upload-card">
-                <button class="drop-zone" id="drop-zone" type="button" aria-label="上傳圖片">
-                    <svg class="drop-icon" width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-                        <circle cx="8.5" cy="8.5" r="1.5" />
-                        <polyline points="21 15 16 10 5 21" />
-                    </svg>
-                    <p class="drop-title" data-i18n="drop_title">拖曳圖片到此處</p>
-                    <p class="drop-or" data-i18n="drop_or">— 或 —</p>
-                    <span class="btn-upload" data-i18n="drop_btn">選擇圖片</span>
-                    <input type="file" id="file-input" accept="image/jpeg,image/png,image/webp,image/gif,image/avif"
-                        multiple hidden aria-label="選擇圖片">
-                    <p class="drop-hint" data-i18n="drop_hint">支援 JPG · PNG · WebP · GIF · AVIF 　　單檔最大 50 MB</p>
-                </button>
-            </div>
-
-            <!-- File List Section -->
-            <section class="file-list-section" id="file-list-section" hidden>
-                <div class="file-list-header">
-                    <h2><span data-i18n="file_list_header_prefix">處理清單</span>（<span id="file-count">0</span> <span
-                            data-i18n="file_list_header_suffix">個檔案</span>）</h2>
-                    <div class="header-actions">
-                        <button class="btn-ghost" id="clear-all" data-i18n="btn_clear_all">清除全部</button>
-                        <button class="btn-primary" id="process-all">
-                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
-                                <polygon points="5 3 19 12 5 21 5 3" />
-                            </svg>
-                            <span data-i18n="btn_process_all">開始處理</span>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="file-list" id="file-list"></div>
-
-                <div class="download-all-bar" id="download-all-bar" hidden>
-                    <button class="btn-download-all" id="download-all">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                            stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                            <polyline points="7 10 12 15 17 10" />
-                            <line x1="12" y1="15" x2="12" y2="3" />
-                        </svg>
-                        <span data-i18n="btn_download_all">全部下載（ZIP）</span>
-                    </button>
-                </div>
-            </section>
-
+            <ul class="picker-list">
+                <li><a class="picker-link" href="/zh-tw/" hreflang="zh-TW" lang="zh-TW" data-lang="zh-tw"><strong>繁體中文</strong><span>免費線上圖片壓縮與裁切，不上傳更安心</span></a></li>
+                <li><a class="picker-link" href="/en/" hreflang="en" lang="en" data-lang="en"><strong>English</strong><span>Free Online Image Compressor &amp; Cropper — Private, No Uploads</span></a></li>
+                <li><a class="picker-link" href="/ja/" hreflang="ja" lang="ja" data-lang="ja"><strong>日本語</strong><span>無料のオンライン画像圧縮・トリミング（アップロード不要）</span></a></li>
+                <li><a class="picker-link" href="/ko/" hreflang="ko" lang="ko" data-lang="ko"><strong>한국어</strong><span>무료 온라인 이미지 압축·자르기 — 업로드 없이 안전하게</span></a></li>
+                <li><a class="picker-link" href="/es/" hreflang="es" lang="es" data-lang="es"><strong>Español</strong><span>Comprime y recorta imágenes gratis — sin subir tus archivos</span></a></li>
+                <li><a class="picker-link" href="/pt/" hreflang="pt" lang="pt-BR" data-lang="pt"><strong>Português</strong><span>Comprima e recorte imagens grátis — sem enviar seus arquivos</span></a></li>
+            </ul>
         </div>
     </main>
 
     <footer class="footer">
-        <p data-i18n="footer">TinyImage — 本地圖片壓縮，檔案不會上傳至任何伺服器</p>
-        <p class="footer-copyright" data-i18n="copyright">© 2026 Bruce Lee · TinyImage。版權所有。</p>
-        <p class="footer-support">
-            <a href="https://buymeacoffee.com/supergud" target="_blank" rel="noopener noreferrer"
-                data-i18n="coffee_link">
-                ☕ Buy me a coffee
-            </a>
-        </p>
+        <p class="footer-copyright">© 2026 Bruce Lee · TinyImage</p>
     </footer>
-
-    <!-- JSZip for batch download -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"
-        integrity="sha512-XMVd28F1oH/O71fzwBnV7HucLxVwtxf26XV8P4wPk26EDxuGZ91N8bsOttmnomcCD3CS5ZMRL50H0GgOHvegtg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="i18n.js?v=20261007-3"></script>
-    <script src="script.js?v=20261007-3"></script>
+    <script src="/i18n.js?v=20261007-5"></script>
 </body>
 
 </html>

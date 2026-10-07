@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<!-- 此檔由 scripts/build.js 產生，請修改 templates/ 與 locales/ 後執行 npm run build -->
+<html lang="en" data-locale="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Online Image Compressor &amp; Cropper | TinyImage — No Uploads</title>
+    <meta name="description" content="Compress and crop JPG, PNG and WebP images online for free. Batch compress photos and crop to Instagram, Facebook, X, Pinterest and YouTube sizes. Everything runs in your browser — no uploads.">
+    <meta name="keywords" content="image compressor,compress image online,reduce image size,photo compressor,crop image,resize image,compress jpg,compress png,webp,instagram image size">
+    <link rel="canonical" href="https://tinyimage.eat2die.com/en/">
+    <link rel="alternate" hreflang="zh-TW" href="https://tinyimage.eat2die.com/zh-tw/">
+    <link rel="alternate" hreflang="en" href="https://tinyimage.eat2die.com/en/">
+    <link rel="alternate" hreflang="ja" href="https://tinyimage.eat2die.com/ja/">
+    <link rel="alternate" hreflang="ko" href="https://tinyimage.eat2die.com/ko/">
+    <link rel="alternate" hreflang="es" href="https://tinyimage.eat2die.com/es/">
+    <link rel="alternate" hreflang="pt" href="https://tinyimage.eat2die.com/pt/">
+    <link rel="alternate" hreflang="x-default" href="https://tinyimage.eat2die.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="TinyImage">
+    <meta property="og:title" content="Free Online Image Compressor &amp; Cropper | TinyImage — No Uploads">
+    <meta property="og:description" content="Compress and crop JPG, PNG and WebP images online for free. Batch compress photos and crop to Instagram, Facebook, X, Pinterest and YouTube sizes. Everything runs in your browser — no uploads.">
+    <meta property="og:url" content="https://tinyimage.eat2die.com/en/">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="zh_TW">
+    <meta property="og:locale:alternate" content="ja_JP">
+    <meta property="og:locale:alternate" content="ko_KR">
+    <meta property="og:locale:alternate" content="es_ES">
+    <meta property="og:locale:alternate" content="pt_BR">
+    <meta name="twitter:card" content="summary">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="stylesheet" href="/style.css?v=20261007-5">
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"TinyImage","url":"https://tinyimage.eat2die.com/en/","description":"Compress and crop JPG, PNG and WebP images online for free. Batch compress photos and crop to Instagram, Facebook, X, Pinterest and YouTube sizes. Everything runs in your browser — no uploads.","inLanguage":"en","applicationCategory":"MultimediaApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript and HTML5 Canvas","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"featureList":["Compress images","Resize proportionally","Crop to exact size","Batch processing & ZIP","Private by design","Clean file names"]},{"@type":"FAQPage","inLanguage":"en","mainEntity":[{"@type":"Question","name":"Is TinyImage free?","acceptedAnswer":{"@type":"Answer","text":"Yes. It is completely free with no sign-up, no install and no daily limits."}},{"@type":"Question","name":"Are my images uploaded to a server?","acceptedAnswer":{"@type":"Answer","text":"No. All compression and cropping happen inside your browser, so your images never leave your device."}},{"@type":"Question","name":"Which image formats are supported?","acceptedAnswer":{"@type":"Answer","text":"You can open JPG, PNG, WebP, GIF, AVIF and any other format your browser can decode. JPG, PNG and WebP keep their format; others are converted to JPG."}},{"@type":"Question","name":"Will compression reduce image quality?","acceptedAnswer":{"@type":"Answer","text":"JPG and WebP use high-quality settings, so differences are barely visible. PNG is lossless — combine it with resizing for smaller files."}},{"@type":"Question","name":"What is the best Instagram post size?","acceptedAnswer":{"@type":"Answer","text":"Use 1080×1080 for square posts, 1080×1350 for portrait posts and 1080×1920 for Stories and Reels. Pick a preset in the Crop & Compress tab to apply it instantly."}},{"@type":"Question","name":"How many images can I process at once?","acceptedAnswer":{"@type":"Answer","text":"You can batch process as many images as you like, up to 50 MB per file."}}]}]}</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3790828781240420"
+        crossorigin="anonymous"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7Z28EXGCYH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-7Z28EXGCYH');
+    </script>
+</head>
+
+<body>
+
+    <!-- ── Header ── -->
+    <header class="header">
+        <div class="header-inner">
+            <div class="header-top">
+                <a class="logo" href="/en/">
+                    <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+                        <rect width="36" height="36" rx="10" fill="white" fill-opacity="0.2" />
+                        <rect x="6" y="6" width="10" height="10" rx="2" fill="white" />
+                        <rect x="20" y="6" width="10" height="10" rx="2" fill="white" fill-opacity="0.7" />
+                        <rect x="6" y="20" width="10" height="10" rx="2" fill="white" fill-opacity="0.7" />
+                        <rect x="20" y="20" width="10" height="10" rx="2" fill="white" />
+                        <path d="M16 11 L20 11 M11 16 L11 20 M25 16 L25 20 M16 25 L20 25" stroke="white"
+                            stroke-width="1.5" stroke-linecap="round" />
+                    </svg>
+                    <span class="logo-text">TinyImage</span>
+                </a>
+                <details class="lang-menu">
+                    <summary aria-label="Language selection">
+                        <svg class="lang-icon" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                            aria-hidden="true">
+                            <circle cx="12" cy="12" r="9" />
+                            <path d="M3 12h18M12 3c2.2 2.4 3.3 5.4 3.3 9s-1.1 6.6-3.3 9c-2.2-2.4-3.3-5.4-3.3-9S9.8 5.4 12 3Z" />
+                        </svg>
+                        <span>English</span>
+                        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <polyline points="6 9 12 15 18 9" />
+                        </svg>
+                    </summary>
+                    <ul class="lang-list">
+                        <li><a href="/zh-tw/" hreflang="zh-TW" lang="zh-TW" data-lang="zh-tw">繁體中文</a></li>
+                        <li><a href="/en/" hreflang="en" lang="en" data-lang="en" aria-current="page">English</a></li>
+                        <li><a href="/ja/" hreflang="ja" lang="ja" data-lang="ja">日本語</a></li>
+                        <li><a href="/ko/" hreflang="ko" lang="ko" data-lang="ko">한국어</a></li>
+                        <li><a href="/es/" hreflang="es" lang="es" data-lang="es">Español</a></li>
+                        <li><a href="/pt/" hreflang="pt" lang="pt-BR" data-lang="pt">Português</a></li>
+                    </ul>
+                </details>
+            </div>
+            <h1 class="tagline">Free Online Image Compressor &amp; Cropper — Private, No Uploads</h1>
+        </div>
+    </header>
+
+    <!-- ── Main ── -->
+    <main class="main">
+        <div class="container">
+
+            <!-- Mode Tabs -->
+            <div class="tabs" role="tablist">
+                <button class="tab-btn active" data-mode="compress" role="tab" aria-selected="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <polyline points="4 14 10 14 10 20" />
+                        <polyline points="20 10 14 10 14 4" />
+                        <line x1="14" y1="10" x2="21" y2="3" />
+                        <line x1="3" y1="21" x2="10" y2="14" />
+                    </svg>
+                    <span>Compress / Resize</span>
+                </button>
+                <button class="tab-btn" data-mode="crop" role="tab" aria-selected="false">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <polyline points="6 2 6 6 2 6" />
+                        <polyline points="18 22 18 18 22 18" />
+                        <path d="M6 18H16a2 2 0 0 0 2-2V6" />
+                        <path d="M6 6H4" />
+                        <path d="M18 18h2" />
+                    </svg>
+                    <span>Crop &amp; Compress</span>
+                </button>
+            </div>
+
+            <!-- Settings Card -->
+            <div class="card settings-card">
+
+                <!-- 壓縮設定 -->
+                <div class="settings-panel" id="compress-settings">
+                    <div class="settings-row">
+                        <div class="setting-group">
+                            <label for="compress-width">
+                                <span>Max Width</span>
+                                <span class="badge-optional">Optional</span>
+                            </label>
+                            <div class="input-unit">
+                                <input type="number" id="compress-width" min="1" max="10000"
+                                    placeholder="No limit">
+                                <span>px</span>
+                            </div>
+                        </div>
+                        <div class="setting-group">
+                            <label for="compress-height">
+                                <span>Max Height</span>
+                                <span class="badge-optional">Optional</span>
+                            </label>
+                            <div class="input-unit">
+                                <input type="number" id="compress-height" min="1" max="10000"
+                                    placeholder="No limit">
+                                <span>px</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="hint">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="12" y1="8" x2="12" y2="12" />
+                            <line x1="12" y1="16" x2="12.01" y2="16" />
+                        </svg>
+                        <span>Leave empty to keep the original size and only compress; fill in to scale down proportionally to fit</span>
+                    </p>
+                </div>
+
+                <!-- 裁切設定 -->
+                <div class="settings-panel hidden" id="crop-settings">
+                    <div class="crop-presets" id="crop-presets">
+                        <div class="preset-title">Common Sizes</div>
+                        <div class="preset-group">
+                            <span class="preset-platform">Instagram</span>
+                            <button type="button" class="preset-btn" data-width="1080" data-height="1080"><span>Square 1:1</span><small>1080×1080</small></button>
+                            <button type="button" class="preset-btn" data-width="1080" data-height="1350"><span>Portrait 4:5</span><small>1080×1350</small></button>
+                            <button type="button" class="preset-btn" data-width="1080" data-height="566"><span>Landscape 1.91:1</span><small>1080×566</small></button>
+                            <button type="button" class="preset-btn" data-width="1080" data-height="1920"><span>Story / Reels</span><small>1080×1920</small></button>
+                            <button type="button" class="preset-btn" data-width="320" data-height="320"><span>Profile</span><small>320×320</small></button>
+                        </div>
+                        <div class="preset-group">
+                            <span class="preset-platform">Facebook</span>
+                            <button type="button" class="preset-btn" data-width="1080" data-height="1080"><span>Post 1:1</span><small>1080×1080</small></button>
+                            <button type="button" class="preset-btn" data-width="1080" data-height="1350"><span>Post 4:5</span><small>1080×1350</small></button>
+                            <button type="button" class="preset-btn" data-width="1200" data-height="630"><span>Link Preview</span><small>1200×630</small></button>
+                            <button type="button" class="preset-btn" data-width="851" data-height="315"><span>Page Cover</span><small>851×315</small></button>
+                            <button type="button" class="preset-btn" data-width="1080" data-height="1920"><span>Story</span><small>1080×1920</small></button>
+                        </div>
+                        <div class="preset-group">
+                            <span class="preset-platform">X · Pinterest · YouTube</span>
+                            <button type="button" class="preset-btn" data-width="1600" data-height="900"><span>X Post 16:9</span><small>1600×900</small></button>
+                            <button type="button" class="preset-btn" data-width="1500" data-height="500"><span>X Header</span><small>1500×500</small></button>
+                            <button type="button" class="preset-btn" data-width="1000" data-height="1500"><span>Pinterest Pin</span><small>1000×1500</small></button>
+                            <button type="button" class="preset-btn" data-width="1280" data-height="720"><span>YouTube Thumbnail</span><small>1280×720</small></button>
+                            <button type="button" class="preset-btn" data-width="1200" data-height="627"><span>LinkedIn Post</span><small>1200×627</small></button>
+                        </div>
+                    </div>
+                    <div class="settings-row">
+                        <div class="setting-group">
+                            <label for="crop-width">
+                                <span>Crop Width</span>
+                                <span class="badge-required">Required</span>
+                            </label>
+                            <div class="input-unit">
+                                <input type="number" id="crop-width" min="1" max="10000"
+                                    placeholder="e.g. 800">
+                                <span>px</span>
+                            </div>
+                        </div>
+                        <div class="setting-group">
+                            <label for="crop-height">
+                                <span>Crop Height</span>
+                                <span class="badge-required">Required</span>
+                            </label>
+                            <div class="input-unit">
+                                <input type="number" id="crop-height" min="1" max="10000"
+                                    placeholder="e.g. 600">
+                                <span>px</span>
+                            </div>
+                        </div>
+                        <div class="setting-group">
+                            <label for="crop-position"><span>Crop Anchor</span></label>
+                            <select id="crop-position">
+                                <option value="centre">⊙ Center</option>
+                                <option value="north">↑ Top</option>
+                                <option value="south">↓ Bottom</option>
+                                <option value="east">→ Right</option>
+                                <option value="west">← Left</option>
+                                <option value="northwest">↖ Top-left</option>
+                                <option value="northeast">↗ Top-right</option>
+                                <option value="southwest">↙ Bottom-left</option>
+                                <option value="southeast">↘ Bottom-right</option>
+                            </select>
+                        </div>
+                    </div>
+                    <p class="hint">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="12" y1="8" x2="12" y2="12" />
+                            <line x1="12" y1="16" x2="12.01" y2="16" />
+                        </svg>
+                        <span>The image is cropped to the exact size; anything outside is trimmed based on the anchor</span>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Upload Card -->
+            <div class="card upload-card" id="upload-card">
+                <button class="drop-zone" id="drop-zone" type="button" aria-label="Choose Images">
+                    <svg class="drop-icon" width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                        <circle cx="8.5" cy="8.5" r="1.5" />
+                        <polyline points="21 15 16 10 5 21" />
+                    </svg>
+                    <p class="drop-title">Drag images here</p>
+                    <p class="drop-or">— or —</p>
+                    <span class="btn-upload">Choose Images</span>
+                    <input type="file" id="file-input" accept="image/jpeg,image/png,image/webp,image/gif,image/avif"
+                        multiple hidden aria-label="Choose Images">
+                    <p class="drop-hint">Supports JPG · PNG · WebP · GIF · AVIF　　Max 50 MB per file</p>
+                </button>
+            </div>
+
+            <!-- File List Section -->
+            <section class="file-list-section" id="file-list-section" hidden>
+                <div class="file-list-header">
+                    <h2>Queue (<span id="file-count">0</span>)</h2>
+                    <div class="header-actions">
+                        <button class="btn-ghost" id="clear-all">Clear All</button>
+                        <button class="btn-primary" id="process-all">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <polygon points="5 3 19 12 5 21 5 3" />
+                            </svg>
+                            <span>Start Processing</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="file-list" id="file-list"></div>
+
+                <div class="download-all-bar" id="download-all-bar" hidden>
+                    <button class="btn-download-all" id="download-all">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                            <polyline points="7 10 12 15 17 10" />
+                            <line x1="12" y1="15" x2="12" y2="3" />
+                        </svg>
+                        <span>Download All (ZIP)</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- ── SEO 內容：功能說明、在地使用情境、FAQ ── -->
+            <section class="seo-section" aria-labelledby="features-title">
+                <h2 id="features-title">Features</h2>
+                <p class="seo-intro">TinyImage is a free online image compressor that needs no sign-up and no install. Reduce image file size, resize photos, or crop them to the exact dimensions social platforms expect — all directly in your browser, so your images never leave your device.</p>
+                <div class="seo-grid">
+                    <article class="seo-card"><h3>Compress images</h3><p>Re-encode JPG, PNG and WebP to shrink file size while keeping images sharp, for faster websites and emails.</p></article>
+                    <article class="seo-card"><h3>Resize proportionally</h3><p>Set a maximum width or height and the photo scales down without distortion — never upscaled.</p></article>
+                    <article class="seo-card"><h3>Crop to exact size</h3><p>Pick a width, height and anchor point to get pixel-perfect images for Instagram, Facebook, X, Pinterest and YouTube.</p></article>
+                    <article class="seo-card"><h3>Batch processing &amp; ZIP</h3><p>Drop in multiple images at once, then download them one by one or all together as a ZIP.</p></article>
+                    <article class="seo-card"><h3>Private by design</h3><p>Compression and cropping run entirely in your browser. Nothing is uploaded, so it is safe for IDs, receipts and client work.</p></article>
+                    <article class="seo-card"><h3>Clean file names</h3><p>Special characters are removed and the output size is added to each file name for easy organizing.</p></article>
+                </div>
+            </section>
+
+            <section class="seo-section" aria-labelledby="usecases-title">
+                <h2 id="usecases-title">Popular Use Cases</h2>
+                <div class="seo-grid">
+                    <article class="seo-card"><h3>Etsy, eBay &amp; Shopify listings</h3><p>Crop product photos to clean, consistent ratios and compress them so your store loads fast.</p></article>
+                    <article class="seo-card"><h3>Email attachments</h3><p>Shrink large phone photos so they fit under Gmail and Outlook attachment limits.</p></article>
+                    <article class="seo-card"><h3>Social media posts</h3><p>One-click presets for Instagram, Facebook, X, Pinterest and LinkedIn — no more looking up size charts.</p></article>
+                    <article class="seo-card"><h3>Websites &amp; blogs</h3><p>Compress hero images and blog photos to improve page speed and Core Web Vitals.</p></article>
+                </div>
+            </section>
+
+            <section class="seo-section" aria-labelledby="faq-title">
+                <h2 id="faq-title">FAQ</h2>
+                <div class="faq-list">
+                    <details class="faq-item"><summary>Is TinyImage free?</summary><p>Yes. It is completely free with no sign-up, no install and no daily limits.</p></details>
+                    <details class="faq-item"><summary>Are my images uploaded to a server?</summary><p>No. All compression and cropping happen inside your browser, so your images never leave your device.</p></details>
+                    <details class="faq-item"><summary>Which image formats are supported?</summary><p>You can open JPG, PNG, WebP, GIF, AVIF and any other format your browser can decode. JPG, PNG and WebP keep their format; others are converted to JPG.</p></details>
+                    <details class="faq-item"><summary>Will compression reduce image quality?</summary><p>JPG and WebP use high-quality settings, so differences are barely visible. PNG is lossless — combine it with resizing for smaller files.</p></details>
+                    <details class="faq-item"><summary>What is the best Instagram post size?</summary><p>Use 1080×1080 for square posts, 1080×1350 for portrait posts and 1080×1920 for Stories and Reels. Pick a preset in the Crop &amp; Compress tab to apply it instantly.</p></details>
+                    <details class="faq-item"><summary>How many images can I process at once?</summary><p>You can batch process as many images as you like, up to 50 MB per file.</p></details>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>TinyImage — Images are processed locally and never uploaded to any server</p>
+        <p class="footer-copyright">© 2026 Bruce Lee · TinyImage. All rights reserved.</p>
+        <p class="footer-support">
+            <a href="https://buymeacoffee.com/supergud" target="_blank" rel="noopener noreferrer">☕ Buy me a coffee</a>
+        </p>
+    </footer>
+
+    <!-- JSZip for batch download -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"
+        integrity="sha512-XMVd28F1oH/O71fzwBnV7HucLxVwtxf26XV8P4wPk26EDxuGZ91N8bsOttmnomcCD3CS5ZMRL50H0GgOHvegtg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="/i18n.js?v=20261007-5"></script>
+    <script src="/script.js?v=20261007-5"></script>
+</body>
+
+</html>
