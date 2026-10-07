@@ -70,7 +70,6 @@ const i18n = {
       'crop_northeast': '↗ 右上',
       'crop_southwest': '↙ 左下',
       'crop_southeast': '↘ 右下',
-      'crop_attention': '🔍 智慧辨識',
       
       // File list
       'file_list_header': '處理清單（{count} 個檔案）',
@@ -94,7 +93,6 @@ const i18n = {
       'error_no_canvas': '瀏覽器不支援圖片處理',
       'error_dimension': '{label} 必須介於 1 到 10000 px',
       'error_packing': '打包失敗：{error}',
-      'error_api_no_image': 'API 沒有回傳圖片',
       'error_packing_title': '打包中…',
       
       // Coffee link
@@ -147,7 +145,6 @@ const i18n = {
       'crop_northeast': '↗ Top-right',
       'crop_southwest': '↙ Bottom-left',
       'crop_southeast': '↘ Bottom-right',
-      'crop_attention': '🔍 Smart Detect',
       
       // File list
       'file_list_header': 'Processing Queue ({count} files)',
@@ -171,7 +168,6 @@ const i18n = {
       'error_no_canvas': 'Browser does not support image processing',
       'error_dimension': '{label} must be between 1 and 10000 px',
       'error_packing': 'Packing failed: {error}',
-      'error_api_no_image': 'API did not return an image',
       'error_packing_title': 'Packing…',
       
       // Coffee link
