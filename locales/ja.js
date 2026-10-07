@@ -1,0 +1,120 @@
+// 日本語
+module.exports = {
+  slug: 'ja',
+  htmlLang: 'ja',
+  hreflang: 'ja',
+  ogLocale: 'ja_JP',
+  name: '日本語',
+
+  meta: {
+    title: '無料の画像圧縮・トリミングツール｜TinyImage アップロード不要',
+    description: 'JPG・PNG・WebP の画像を無料でオンライン圧縮・トリミング。複数枚まとめて圧縮でき、Instagram・X・LINE・メルカリ向けのサイズにワンクリックで切り抜けます。処理はすべてブラウザ内で完結し、画像はアップロードされません。',
+    keywords: '画像圧縮,画像 圧縮 オンライン,写真 圧縮,画像 縮小,画像 トリミング,JPG 圧縮,PNG 圧縮,WebP,インスタ 画像サイズ,メルカリ 写真 サイズ',
+  },
+  h1: '無料のオンライン画像圧縮・トリミング（アップロード不要）',
+
+  ui: {
+    language_switcher: '言語を選択',
+    tab_compress: '圧縮 / 縮小',
+    tab_crop: 'トリミング＋圧縮',
+    label_width: '最大幅',
+    label_height: '最大高さ',
+    label_crop_width: '切り抜き幅',
+    label_crop_height: '切り抜き高さ',
+    label_crop_position: '基準位置',
+    label_crop_preset: 'よく使うサイズ',
+    badge_optional: '任意',
+    badge_required: '必須',
+    hint_resize: '空欄なら元のサイズのまま圧縮のみ。入力すると縦横比を保って指定サイズ内に縮小します',
+    hint_crop: '指定したサイズで正確に切り抜きます。はみ出た部分は基準位置に合わせてカットされます',
+    placeholder_unlimited: '指定なし',
+    placeholder_crop_width: '例：800',
+    placeholder_crop_height: '例：600',
+    drop_title: 'ここに画像をドラッグ',
+    drop_or: '— または —',
+    drop_btn: '画像を選択',
+    drop_hint: 'JPG · PNG · WebP · GIF · AVIF 対応　　1ファイル最大 50 MB',
+    crop_centre: '⊙ 中央',
+    crop_north: '↑ 上',
+    crop_south: '↓ 下',
+    crop_east: '→ 右',
+    crop_west: '← 左',
+    crop_northwest: '↖ 左上',
+    crop_northeast: '↗ 右上',
+    crop_southwest: '↙ 左下',
+    crop_southeast: '↘ 右下',
+    file_list_header_prefix: '処理リスト',
+    btn_clear_all: 'すべてクリア',
+    btn_process_all: '処理を開始',
+    btn_download_all: 'まとめてダウンロード（ZIP）',
+    footer: 'TinyImage — 画像はブラウザ内で処理され、サーバーにアップロードされません',
+    copyright: '© 2026 Bruce Lee · TinyImage. All rights reserved.',
+    coffee_link: '☕ コーヒーをおごる',
+  },
+
+  messages: {
+    btn_download: 'ダウンロード',
+    btn_remove: '削除',
+    status_pending: '待機中',
+    status_processing: '処理中',
+    status_error: '失敗',
+    error_max_size: '「{name}」は 50 MB を超えているためスキップしました。',
+    error_crop_required: 'トリミングには幅と高さの両方が必要です',
+    error_cannot_read: '画像を読み込めません',
+    error_cannot_load: '画像を表示できません',
+    error_cannot_output: '画像を書き出せません',
+    error_no_canvas: 'お使いのブラウザは画像処理に対応していません',
+    error_dimension: '{label}は 1〜10000 px で入力してください',
+    error_packing: 'ZIP の作成に失敗しました：{error}',
+    error_packing_title: 'ZIP 作成中…',
+  },
+
+  presets: [
+    { platform: 'Instagram', items: [
+      [1080, 1080, '正方形 1:1'], [1080, 1350, '縦長 4:5'], [1080, 566, '横長 1.91:1'],
+      [1080, 1920, 'ストーリーズ／リール'], [320, 320, 'プロフィール'],
+    ] },
+    { platform: 'X・LINE', items: [
+      [1600, 900, 'X 投稿 16:9'], [1500, 500, 'X ヘッダー'],
+      [1040, 1040, 'LINE リッチメッセージ'], [1200, 630, 'OGP・リンク画像'],
+    ] },
+    { platform: 'メルカリ・note・YouTube', items: [
+      [1080, 1080, 'メルカリ 出品写真'], [1280, 670, 'note 見出し画像'], [1280, 720, 'YouTube サムネイル'],
+    ] },
+  ],
+
+  features: {
+    title: '機能紹介',
+    intro: 'TinyImage は登録もインストールも不要な無料のオンライン画像圧縮ツールです。写真のファイルサイズを小さくしたり、画像をリサイズしたり、SNS に合わせたサイズに切り抜いたりする作業が、ブラウザだけで完結します。画像が端末の外に出ることはありません。',
+    items: [
+      { title: '画像圧縮', text: 'JPG・PNG・WebP を再エンコードし、画質を保ったままファイルサイズを大きく削減します。' },
+      { title: '縦横比を保ってリサイズ', text: '最大幅または高さを入力するだけで、歪みなく縮小。拡大して画質が落ちることもありません。' },
+      { title: 'ピクセル単位でトリミング', text: '幅・高さ・基準位置を指定して、Instagram や X、LINE、メルカリに最適なサイズへ切り抜けます。' },
+      { title: '一括処理と ZIP ダウンロード', text: '複数の画像をまとめてドラッグ。処理後は1枚ずつでも ZIP でまとめてでも保存できます。' },
+      { title: 'アップロードなしで安心', text: '圧縮もトリミングもブラウザ内で完結。本人確認書類や仕事の写真も安心して扱えます。' },
+      { title: 'わかりやすいファイル名', text: '記号を自動で取り除き、出力サイズをファイル名に付けるので整理が簡単です。' },
+    ],
+  },
+
+  useCases: {
+    title: 'こんなときに便利',
+    items: [
+      { title: 'メルカリ・ラクマの出品写真', text: 'スマホで撮った商品写真を正方形に切り抜いて圧縮。出品作業がスムーズになります。' },
+      { title: 'LINE 公式アカウントの配信', text: 'リッチメッセージ用の 1040×1040 にワンクリックで切り抜き、容量もしっかり軽量化。' },
+      { title: 'note・ブログの見出し画像', text: '見出し画像やアイキャッチを推奨サイズに整えて圧縮し、ページの表示速度を改善します。' },
+      { title: '役所・学校のオンライン申請', text: '容量制限のある申請フォームでも、証明写真や書類の画像を圧縮すればスムーズに提出できます。' },
+    ],
+  },
+
+  faq: {
+    title: 'よくある質問',
+    items: [
+      { q: 'TinyImage は無料ですか？', a: 'はい、完全無料です。会員登録やインストールは不要で、1日の枚数制限もありません。' },
+      { q: '画像はサーバーにアップロードされますか？', a: 'いいえ。圧縮とトリミングはすべてブラウザ内で行われ、画像が端末の外に送信されることはありません。' },
+      { q: '対応している画像形式は？', a: 'JPG・PNG・WebP・GIF・AVIF など、ブラウザで開ける形式に対応しています。JPG・PNG・WebP は同じ形式で、その他は JPG で出力されます。' },
+      { q: '圧縮すると画質は落ちますか？', a: 'JPG と WebP は高画質設定のため、見た目の違いはほとんどありません。PNG は可逆圧縮なので、さらに軽くしたい場合はリサイズと組み合わせてください。' },
+      { q: 'メルカリの写真に最適なサイズは？', a: '正方形の 1080×1080 がおすすめです。「トリミング＋圧縮」タブの「メルカリ 出品写真」ボタンですぐに設定できます。' },
+      { q: '一度に何枚まで処理できますか？', a: '複数枚をまとめて一括処理できます。1ファイルの上限は 50 MB です。' },
+    ],
+  },
+};

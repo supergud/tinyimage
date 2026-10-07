@@ -24,6 +24,7 @@ Try it online: <https://tinyimage.eat2die.com>
 - Special characters are stripped from file names, including Chinese file names
 - Download everything at once as a ZIP
 - Images are never uploaded to a server, so your files stay private
+- Available in 繁體中文, English, 日本語, 한국어, Español and Português, with crop presets for local platforms
 
 ## Supported Formats
 

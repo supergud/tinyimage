@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<!-- 此檔由 scripts/build.js 產生，請修改 templates/ 與 locales/ 後執行 npm run build -->
+<html lang="zh-TW" data-locale="zh-tw">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>免費線上圖片壓縮與裁切工具｜TinyImage 不上傳、保護隱私</title>
+    <meta name="description" content="TinyImage 是免費的線上圖片壓縮與裁切工具，支援 JPG、PNG、WebP 批次壓縮，一鍵裁成 FB、IG、Threads、LINE、蝦皮適用尺寸。所有處理都在瀏覽器完成，圖片不會上傳。">
+    <meta name="keywords" content="圖片壓縮,線上圖片壓縮,照片壓縮,圖片縮小,圖片裁切,JPG 壓縮,PNG 壓縮,WebP,IG 尺寸,FB 尺寸,蝦皮商品圖尺寸">
+    <link rel="canonical" href="https://tinyimage.eat2die.com/zh-tw/">
+    <link rel="alternate" hreflang="zh-TW" href="https://tinyimage.eat2die.com/zh-tw/">
+    <link rel="alternate" hreflang="en" href="https://tinyimage.eat2die.com/en/">
+    <link rel="alternate" hreflang="ja" href="https://tinyimage.eat2die.com/ja/">
+    <link rel="alternate" hreflang="ko" href="https://tinyimage.eat2die.com/ko/">
+    <link rel="alternate" hreflang="es" href="https://tinyimage.eat2die.com/es/">
+    <link rel="alternate" hreflang="pt" href="https://tinyimage.eat2die.com/pt/">
+    <link rel="alternate" hreflang="x-default" href="https://tinyimage.eat2die.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="TinyImage">
+    <meta property="og:title" content="免費線上圖片壓縮與裁切工具｜TinyImage 不上傳、保護隱私">
+    <meta property="og:description" content="TinyImage 是免費的線上圖片壓縮與裁切工具，支援 JPG、PNG、WebP 批次壓縮，一鍵裁成 FB、IG、Threads、LINE、蝦皮適用尺寸。所有處理都在瀏覽器完成，圖片不會上傳。">
+    <meta property="og:url" content="https://tinyimage.eat2die.com/zh-tw/">
+    <meta property="og:locale" content="zh_TW">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:locale:alternate" content="ja_JP">
+    <meta property="og:locale:alternate" content="ko_KR">
+    <meta property="og:locale:alternate" content="es_ES">
+    <meta property="og:locale:alternate" content="pt_BR">
+    <meta name="twitter:card" content="summary">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="stylesheet" href="/style.css?v=20261007-5">
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"TinyImage","url":"https://tinyimage.eat2die.com/zh-tw/","description":"TinyImage 是免費的線上圖片壓縮與裁切工具，支援 JPG、PNG、WebP 批次壓縮，一鍵裁成 FB、IG、Threads、LINE、蝦皮適用尺寸。所有處理都在瀏覽器完成，圖片不會上傳。","inLanguage":"zh-TW","applicationCategory":"MultimediaApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript and HTML5 Canvas","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"featureList":["圖片壓縮","等比例縮小","精準裁切","批次處理與 ZIP 下載","不上傳、保護隱私","中文檔名友善"]},{"@type":"FAQPage","inLanguage":"zh-TW","mainEntity":[{"@type":"Question","name":"TinyImage 是免費的嗎？","acceptedAnswer":{"@type":"Answer","text":"完全免費，不需要註冊或安裝軟體，也沒有每日張數限制。"}},{"@type":"Question","name":"我的圖片會被上傳到伺服器嗎？","acceptedAnswer":{"@type":"Answer","text":"不會。所有壓縮與裁切都在你的瀏覽器內完成，圖片不會離開你的電腦或手機。"}},{"@type":"Question","name":"支援哪些圖片格式？","acceptedAnswer":{"@type":"Answer","text":"可以匯入 JPG、PNG、WebP、GIF、AVIF 等瀏覽器能開啟的格式。JPG、PNG、WebP 會維持原格式輸出，其他格式會轉成 JPG。"}},{"@type":"Question","name":"壓縮後畫質會變差嗎？","acceptedAnswer":{"@type":"Answer","text":"JPG 與 WebP 採用高品質設定，肉眼幾乎看不出差異；PNG 為無損格式，若想要更小的檔案，可以搭配縮小尺寸一起使用。"}},{"@type":"Question","name":"IG、FB 貼文的最佳尺寸是多少？","acceptedAnswer":{"@type":"Answer","text":"IG 方形貼文建議 1080×1080、直式 1080×1350，限時動態與 Reels 為 1080×1920；FB 連結分享圖為 1200×630。在「裁切並壓縮」分頁點選常用尺寸按鈕即可套用。"}},{"@type":"Question","name":"一次可以處理幾張？檔案大小有限制嗎？","acceptedAnswer":{"@type":"Answer","text":"可以一次拖曳多張圖片批次處理，單檔上限為 50 MB。"}}]}]}</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3790828781240420"
+        crossorigin="anonymous"></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7Z28EXGCYH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-7Z28EXGCYH');
+    </script>
+</head>
+
+<body>
+
+    <!-- ── Header ── -->
+    <header class="header">
+        <div class="header-inner">
+            <div class="header-top">
+                <a class="logo" href="/zh-tw/">
+                    <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+                        <rect width="36" height="36" rx="10" fill="white" fill-opacity="0.2" />
+                        <rect x="6" y="6" width="10" height="10" rx="2" fill="white" />
+                        <rect x="20" y="6" width="10" height="10" rx="2" fill="white" fill-opacity="0.7" />
+                        <rect x="6" y="20" width="10" height="10" rx="2" fill="white" fill-opacity="0.7" />
+                        <rect x="20" y="20" width="10" height="10" rx="2" fill="white" />
+                        <path d="M16 11 L20 11 M11 16 L11 20 M25 16 L25 20 M16 25 L20 25" stroke="white"
+                            stroke-width="1.5" stroke-linecap="round" />
+                    </svg>
+                    <span class="logo-text">TinyImage</span>
+                </a>
+                <details class="lang-menu">
+                    <summary aria-label="語言選擇">
+                        <svg class="lang-icon" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                            aria-hidden="true">
+                            <circle cx="12" cy="12" r="9" />
+                            <path d="M3 12h18M12 3c2.2 2.4 3.3 5.4 3.3 9s-1.1 6.6-3.3 9c-2.2-2.4-3.3-5.4-3.3-9S9.8 5.4 12 3Z" />
+                        </svg>
+                        <span>繁體中文</span>
+                        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <polyline points="6 9 12 15 18 9" />
+                        </svg>
+                    </summary>
+                    <ul class="lang-list">
+                        <li><a href="/zh-tw/" hreflang="zh-TW" lang="zh-TW" data-lang="zh-tw" aria-current="page">繁體中文</a></li>
+                        <li><a href="/en/" hreflang="en" lang="en" data-lang="en">English</a></li>
+                        <li><a href="/ja/" hreflang="ja" lang="ja" data-lang="ja">日本語</a></li>
+                        <li><a href="/ko/" hreflang="ko" lang="ko" data-lang="ko">한국어</a></li>
+                        <li><a href="/es/" hreflang="es" lang="es" data-lang="es">Español</a></li>
+                        <li><a href="/pt/" hreflang="pt" lang="pt-BR" data-lang="pt">Português</a></li>
+                    </ul>
+                </details>
+            </div>
+            <h1 class="tagline">免費線上圖片壓縮與裁切，不上傳更安心</h1>
+        </div>
+    </header>
+
+    <!-- ── Main ── -->
+    <main class="main">
+        <div class="container">
+
+            <!-- Mode Tabs -->
+            <div class="tabs" role="tablist">
+                <button class="tab-btn active" data-mode="compress" role="tab" aria-selected="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <polyline points="4 14 10 14 10 20" />
+                        <polyline points="20 10 14 10 14 4" />
+                        <line x1="14" y1="10" x2="21" y2="3" />
+                        <line x1="3" y1="21" x2="10" y2="14" />
+                    </svg>
+                    <span>壓縮 / 縮小</span>
+                </button>
+                <button class="tab-btn" data-mode="crop" role="tab" aria-selected="false">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <polyline points="6 2 6 6 2 6" />
+                        <polyline points="18 22 18 18 22 18" />
+                        <path d="M6 18H16a2 2 0 0 0 2-2V6" />
+                        <path d="M6 6H4" />
+                        <path d="M18 18h2" />
+                    </svg>
+                    <span>裁切並壓縮</span>
+                </button>
+            </div>
+
+            <!-- Settings Card -->
+            <div class="card settings-card">
+
+                <!-- 壓縮設定 -->
+                <div class="settings-panel" id="compress-settings">
+                    <div class="settings-row">
+                        <div class="setting-group">
+                            <label for="compress-width">
+                                <span>縮小寬度</span>
+                                <span class="badge-optional">選填</span>
+                            </label>
+                            <div class="input-unit">
+                                <input type="number" id="compress-width" min="1" max="10000"
+                                    placeholder="不限">
+                                <span>px</span>
+                            </div>
+                        </div>
+                        <div class="setting-group">
+                            <label for="compress-height">
+                                <span>縮小高度</span>
+                                <span class="badge-optional">選填</span>
+                            </label>
+                            <div class="input-unit">
+                                <input type="number" id="compress-height" min="1" max="10000"
+                                    placeholder="不限">
+                                <span>px</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="hint">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="12" y1="8" x2="12" y2="12" />
+                            <line x1="12" y1="16" x2="12.01" y2="16" />
+                        </svg>
+                        <span>留空則維持原始比例，僅做高效壓縮；填寫後等比縮小至指定邊長內</span>
+                    </p>
+                </div>
+
+                <!-- 裁切設定 -->
+                <div class="settings-panel hidden" id="crop-settings">
+                    <div class="crop-presets" id="crop-presets">
+                        <div class="preset-title">常用尺寸</div>
+                        <div class="preset-group">
+                            <span class="preset-platform">Facebook</span>
+                            <button type="button" class="preset-btn" data-width="1080" data-height="1080"><span>方形 1:1</span><small>1080×1080</small></button>
+                            <button type="button" class="preset-btn" data-width="1080" data-height="1350"><span>直式 4:5</span><small>1080×1350</small></button>
+                            <button type="button" class="preset-btn" data-width="1200" data-height="630"><span>連結分享圖</span><small>1200×630</small></button>
+                            <button type="button" class="preset-btn" data-width="851" data-height="315"><span>粉專封面</span><small>851×315</small></button>
+                            <button type="button" class="preset-btn" data-width="1080" data-height="1920"><span>限時動態</span><small>1080×1920</small></button>
+                        </div>
+                        <div class="preset-group">
+                            <span class="preset-platform">Instagram</span>
+                            <button type="button" class="preset-btn" data-width="1080" data-height="1080"><span>方形 1:1</span><small>1080×1080</small></button>
+                            <button type="button" class="preset-btn" data-width="1080" data-height="1350"><span>直式 4:5</span><small>1080×1350</small></button>
+                            <button type="button" class="preset-btn" data-width="1080" data-height="566"><span>橫式 1.91:1</span><small>1080×566</small></button>
+                            <button type="button" class="preset-btn" data-width="1080" data-height="1920"><span>限動／Reels</span><small>1080×1920</small></button>
+                            <button type="button" class="preset-btn" data-width="320" data-height="320"><span>大頭貼</span><small>320×320</small></button>
+                        </div>
+                        <div class="preset-group">
+                            <span class="preset-platform">Threads・LINE・蝦皮</span>
+                            <button type="button" class="preset-btn" data-width="1080" data-height="1440"><span>Threads 直式 3:4</span><small>1080×1440</small></button>
+                            <button type="button" class="preset-btn" data-width="1040" data-height="1040"><span>LINE 圖文訊息</span><small>1040×1040</small></button>
+                            <button type="button" class="preset-btn" data-width="1024" data-height="1024"><span>蝦皮商品圖</span><small>1024×1024</small></button>
+                            <button type="button" class="preset-btn" data-width="1280" data-height="720"><span>YouTube 縮圖</span><small>1280×720</small></button>
+                        </div>
+                    </div>
+                    <div class="settings-row">
+                        <div class="setting-group">
+                            <label for="crop-width">
+                                <span>裁切寬度</span>
+                                <span class="badge-required">必填</span>
+                            </label>
+                            <div class="input-unit">
+                                <input type="number" id="crop-width" min="1" max="10000"
+                                    placeholder="如 800">
+                                <span>px</span>
+                            </div>
+                        </div>
+                        <div class="setting-group">
+                            <label for="crop-height">
+                                <span>裁切高度</span>
+                                <span class="badge-required">必填</span>
+                            </label>
+                            <div class="input-unit">
+                                <input type="number" id="crop-height" min="1" max="10000"
+                                    placeholder="如 600">
+                                <span>px</span>
+                            </div>
+                        </div>
+                        <div class="setting-group">
+                            <label for="crop-position"><span>裁切錨點</span></label>
+                            <select id="crop-position">
+                                <option value="centre">⊙ 置中</option>
+                                <option value="north">↑ 上方</option>
+                                <option value="south">↓ 下方</option>
+                                <option value="east">→ 右側</option>
+                                <option value="west">← 左側</option>
+                                <option value="northwest">↖ 左上</option>
+                                <option value="northeast">↗ 右上</option>
+                                <option value="southwest">↙ 左下</option>
+                                <option value="southeast">↘ 右下</option>
+                            </select>
+                        </div>
+                    </div>
+                    <p class="hint">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="12" y1="8" x2="12" y2="12" />
+                            <line x1="12" y1="16" x2="12.01" y2="16" />
+                        </svg>
+                        <span>圖片將裁切為精確的指定尺寸，超出部分依錨點方向裁去</span>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Upload Card -->
+            <div class="card upload-card" id="upload-card">
+                <button class="drop-zone" id="drop-zone" type="button" aria-label="選擇圖片">
+                    <svg class="drop-icon" width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                        <circle cx="8.5" cy="8.5" r="1.5" />
+                        <polyline points="21 15 16 10 5 21" />
+                    </svg>
+                    <p class="drop-title">拖曳圖片到此處</p>
+                    <p class="drop-or">— 或 —</p>
+                    <span class="btn-upload">選擇圖片</span>
+                    <input type="file" id="file-input" accept="image/jpeg,image/png,image/webp,image/gif,image/avif"
+                        multiple hidden aria-label="選擇圖片">
+                    <p class="drop-hint">支援 JPG · PNG · WebP · GIF · AVIF　　單檔最大 50 MB</p>
+                </button>
+            </div>
+
+            <!-- File List Section -->
+            <section class="file-list-section" id="file-list-section" hidden>
+                <div class="file-list-header">
+                    <h2>處理清單 (<span id="file-count">0</span>)</h2>
+                    <div class="header-actions">
+                        <button class="btn-ghost" id="clear-all">清除全部</button>
+                        <button class="btn-primary" id="process-all">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <polygon points="5 3 19 12 5 21 5 3" />
+                            </svg>
+                            <span>開始處理</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="file-list" id="file-list"></div>
+
+                <div class="download-all-bar" id="download-all-bar" hidden>
+                    <button class="btn-download-all" id="download-all">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                            <polyline points="7 10 12 15 17 10" />
+                            <line x1="12" y1="15" x2="12" y2="3" />
+                        </svg>
+                        <span>全部下載（ZIP）</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- ── SEO 內容：功能說明、在地使用情境、FAQ ── -->
+            <section class="seo-section" aria-labelledby="features-title">
+                <h2 id="features-title">功能說明</h2>
+                <p class="seo-intro">TinyImage 是一款免安裝、免註冊的線上圖片壓縮工具。不論是要縮小照片檔案大小、調整圖片尺寸，或是把照片裁切成社群貼文需要的比例，打開網頁就能完成，而且所有圖片都只在你的瀏覽器內處理。</p>
+                <div class="seo-grid">
+                    <article class="seo-card"><h3>圖片壓縮</h3><p>重新編碼 JPG、PNG、WebP，在維持清晰畫質的前提下大幅縮小檔案大小，加快網頁載入與傳送速度。</p></article>
+                    <article class="seo-card"><h3>等比例縮小</h3><p>輸入最大寬度或高度，照片會等比例縮小，不會變形，也不會放大造成模糊。</p></article>
+                    <article class="seo-card"><h3>精準裁切</h3><p>指定寬高與裁切錨點，一次裁出 FB、IG、Threads、LINE、蝦皮需要的尺寸。</p></article>
+                    <article class="seo-card"><h3>批次處理與 ZIP 下載</h3><p>一次拖曳多張圖片，處理完成後可以逐張下載，或打包成 ZIP 一次帶走。</p></article>
+                    <article class="seo-card"><h3>不上傳、保護隱私</h3><p>壓縮與裁切都在瀏覽器端完成，圖片不會傳到任何伺服器，身分證件、合約照片也能安心處理。</p></article>
+                    <article class="seo-card"><h3>中文檔名友善</h3><p>自動清除檔名中的特殊符號，下載檔名會附上實際輸出尺寸，方便整理。</p></article>
+                </div>
+            </section>
+
+            <section class="seo-section" aria-labelledby="usecases-title">
+                <h2 id="usecases-title">在地使用情境</h2>
+                <div class="seo-grid">
+                    <article class="seo-card"><h3>蝦皮、露天賣家上架</h3><p>把手機拍的商品照裁成 1:1 方形並壓縮，上架更快、買家瀏覽也更順。</p></article>
+                    <article class="seo-card"><h3>LINE 傳照片不糊</h3><p>先縮小再傳，避免原圖太大傳送失敗，LINE 官方帳號的圖文訊息也能直接裁成 1040×1040。</p></article>
+                    <article class="seo-card"><h3>FB 粉專、IG、Threads 經營</h3><p>用常用尺寸按鈕一鍵套用貼文、限動、封面比例，小編不用再查尺寸表。</p></article>
+                    <article class="seo-card"><h3>政府網站、學校報名上傳</h3><p>報名表或線上申辦常限制檔案大小，先壓縮證件照與文件照片，就能順利通過上傳限制。</p></article>
+                </div>
+            </section>
+
+            <section class="seo-section" aria-labelledby="faq-title">
+                <h2 id="faq-title">常見問題</h2>
+                <div class="faq-list">
+                    <details class="faq-item"><summary>TinyImage 是免費的嗎？</summary><p>完全免費，不需要註冊或安裝軟體，也沒有每日張數限制。</p></details>
+                    <details class="faq-item"><summary>我的圖片會被上傳到伺服器嗎？</summary><p>不會。所有壓縮與裁切都在你的瀏覽器內完成，圖片不會離開你的電腦或手機。</p></details>
+                    <details class="faq-item"><summary>支援哪些圖片格式？</summary><p>可以匯入 JPG、PNG、WebP、GIF、AVIF 等瀏覽器能開啟的格式。JPG、PNG、WebP 會維持原格式輸出，其他格式會轉成 JPG。</p></details>
+                    <details class="faq-item"><summary>壓縮後畫質會變差嗎？</summary><p>JPG 與 WebP 採用高品質設定，肉眼幾乎看不出差異；PNG 為無損格式，若想要更小的檔案，可以搭配縮小尺寸一起使用。</p></details>
+                    <details class="faq-item"><summary>IG、FB 貼文的最佳尺寸是多少？</summary><p>IG 方形貼文建議 1080×1080、直式 1080×1350，限時動態與 Reels 為 1080×1920；FB 連結分享圖為 1200×630。在「裁切並壓縮」分頁點選常用尺寸按鈕即可套用。</p></details>
+                    <details class="faq-item"><summary>一次可以處理幾張？檔案大小有限制嗎？</summary><p>可以一次拖曳多張圖片批次處理，單檔上限為 50 MB。</p></details>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>TinyImage — 本地圖片壓縮，檔案不會上傳至任何伺服器</p>
+        <p class="footer-copyright">© 2026 Bruce Lee · TinyImage。版權所有。</p>
+        <p class="footer-support">
+            <a href="https://buymeacoffee.com/supergud" target="_blank" rel="noopener noreferrer">☕ 買杯咖啡</a>
+        </p>
+    </footer>
+
+    <!-- JSZip for batch download -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"
+        integrity="sha512-XMVd28F1oH/O71fzwBnV7HucLxVwtxf26XV8P4wPk26EDxuGZ91N8bsOttmnomcCD3CS5ZMRL50H0GgOHvegtg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="/i18n.js?v=20261007-5"></script>
+    <script src="/script.js?v=20261007-5"></script>
+</body>
+
+</html>

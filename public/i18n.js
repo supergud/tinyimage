@@ -1,268 +1,140 @@
-// ── i18n Translation System ──
-const supportedLanguages = ['zh-TW', 'en'];
-
-function getBrowserLanguage() {
-  const browserLanguages = typeof navigator !== 'undefined'
-    ? (navigator.languages?.length ? navigator.languages : [navigator.language])
-    : [];
-  const preferredLanguage = browserLanguages.find(Boolean)?.toLowerCase() || '';
-
-  return preferredLanguage.startsWith('zh') ? 'zh-TW' : 'en';
-}
-
-function getInitialLanguage() {
-  const savedLanguage = localStorage.getItem('tinyimage_lang');
-  return supportedLanguages.includes(savedLanguage) ? savedLanguage : getBrowserLanguage();
-}
-
-const i18n = {
-  currentLang: getInitialLanguage(),
-  
-  translations: {
-    'zh-TW': {
-      // Header & Footer
-      'tagline': '智慧圖片壓縮與裁切工具',
-      'footer': 'TinyImage — 本地圖片壓縮，檔案不會上傳至任何伺服器',
-      'copyright': '© 2026 Bruce Lee · TinyImage。版權所有。',
-      'language_switcher': '語言選擇',
-      
-      // Tabs
-      'tab_compress': '壓縮 / 縮小',
-      'tab_crop': '裁切並壓縮',
-      
-      // Labels
-      'label_width': '縮小寬度',
-      'label_height': '縮小高度',
-      'label_crop_width': '裁切寬度',
-      'label_crop_height': '裁切高度',
-      'label_crop_position': '裁切錨點',
-      
-      // Badges
-      'badge_optional': '選填',
-      'badge_required': '必填',
-      
-      // Hints
-      'hint_resize': '留空則維持原始比例，僅做高效壓縮；填寫後等比縮小至指定邊長內',
-      'hint_crop': '圖片將裁切為精確的指定尺寸，超出部分依錨點方向裁去',
-
-      // Placeholders
-      'placeholder_unlimited': '不限',
-      'placeholder_crop_width': '如 800',
-      'placeholder_crop_height': '如 600',
-      
-      // Upload area
-      'drop_title': '拖曳圖片到此處',
-      'drop_or': '— 或 —',
-      'drop_btn': '選擇圖片',
-      'drop_hint': '支援 JPG · PNG · WebP · GIF · AVIF 　　單檔最大 50 MB',
-      
-      // File list header
-      'file_list_header_prefix': '處理清單',
-      'file_list_header_suffix': '個檔案',
-      
-      // Crop positions
-      'crop_centre': '⊙ 置中',
-      'crop_north': '↑ 上方',
-      'crop_south': '↓ 下方',
-      'crop_east': '→ 右側',
-      'crop_west': '← 左側',
-      'crop_northwest': '↖ 左上',
-      'crop_northeast': '↗ 右上',
-      'crop_southwest': '↙ 左下',
-      'crop_southeast': '↘ 右下',
-
-      // Crop presets
-      'label_crop_preset': '常用尺寸',
-      'preset_square': '方形 1:1',
-      'preset_portrait45': '直式 4:5',
-      'preset_portrait34': '直式 3:4',
-      'preset_landscape': '橫式 1.91:1',
-      'preset_link': '連結分享圖',
-      'preset_cover': '粉專封面',
-      'preset_story': '限時動態',
-      'preset_story_reels': '限動／Reels',
-      'preset_profile': '大頭貼',
-
-      // File list
-      'file_list_header': '處理清單（{count} 個檔案）',
-      'btn_clear_all': '清除全部',
-      'btn_process_all': '開始處理',
-      'btn_download_all': '全部下載（ZIP）',
-      'btn_download': '下載',
-      
-      // Status
-      'status_pending': '等待中',
-      'status_processing': '處理中',
-      'status_done': '完成',
-      'status_error': '失敗',
-      
-      // Messages
-      'error_max_size': '「{name}」超過 50 MB 限制，已跳過。',
-      'error_crop_required': '裁切模式需要同時填寫寬度與高度',
-      'error_cannot_read': '無法讀取圖片',
-      'error_cannot_load': '無法載入圖片',
-      'error_cannot_output': '無法輸出圖片',
-      'error_no_canvas': '瀏覽器不支援圖片處理',
-      'error_dimension': '{label} 必須介於 1 到 10000 px',
-      'error_packing': '打包失敗：{error}',
-      'error_packing_title': '打包中…',
-      
-      // Coffee link
-      'coffee_link': '☕ 買杯咖啡',
-    },
-    'en': {
-      // Header & Footer
-      'tagline': 'Smart Image Compression & Crop Tool',
-      'footer': 'TinyImage — Image compression locally, files are never uploaded to any server',
-      'copyright': '© 2026 Bruce Lee · TinyImage. All rights reserved.',
-      'language_switcher': 'Language selection',
-      
-      // Tabs
-      'tab_compress': 'Compress / Resize',
-      'tab_crop': 'Crop & Compress',
-      
-      // Labels
-      'label_width': 'Reduce Width',
-      'label_height': 'Reduce Height',
-      'label_crop_width': 'Crop Width',
-      'label_crop_height': 'Crop Height',
-      'label_crop_position': 'Crop Anchor',
-      
-      // Badges
-      'badge_optional': 'Optional',
-      'badge_required': 'Required',
-      
-      // Hints
-      'hint_resize': 'Leave empty to maintain original aspect ratio with efficient compression; fill in to scale down proportionally to specified edge length',
-      'hint_crop': 'Image will be cropped to exact specified dimensions, overflow will be cropped based on anchor direction',
-
-      // Placeholders
-      'placeholder_unlimited': 'No limit',
-      'placeholder_crop_width': 'e.g. 800',
-      'placeholder_crop_height': 'e.g. 600',
-      
-      // Upload area
-      'drop_title': 'Drag images here',
-      'drop_or': '— or —',
-      'drop_btn': 'Choose Images',
-      'drop_hint': 'Supports JPG · PNG · WebP · GIF · AVIF　　Max 50 MB per file',
-      
-      // Crop positions
-      'crop_centre': '⊙ Center',
-      'crop_north': '↑ Top',
-      'crop_south': '↓ Bottom',
-      'crop_east': '→ Right',
-      'crop_west': '← Left',
-      'crop_northwest': '↖ Top-left',
-      'crop_northeast': '↗ Top-right',
-      'crop_southwest': '↙ Bottom-left',
-      'crop_southeast': '↘ Bottom-right',
-
-      // Crop presets
-      'label_crop_preset': 'Common Sizes',
-      'preset_square': 'Square 1:1',
-      'preset_portrait45': 'Portrait 4:5',
-      'preset_portrait34': 'Portrait 3:4',
-      'preset_landscape': 'Landscape 1.91:1',
-      'preset_link': 'Link Preview',
-      'preset_cover': 'Page Cover',
-      'preset_story': 'Story',
-      'preset_story_reels': 'Story / Reels',
-      'preset_profile': 'Profile Photo',
-
-      // File list
-      'file_list_header': 'Processing Queue ({count} files)',
-      'btn_clear_all': 'Clear All',
-      'btn_process_all': 'Start Processing',
-      'btn_download_all': 'Download All (ZIP)',
-      'btn_download': 'Download',
-      
-      // Status
-      'status_pending': 'Pending',
-      'status_processing': 'Processing',
-      'status_done': 'Done',
-      'status_error': 'Failed',
-      
-      // Messages
-      'error_max_size': '"{name}" exceeds 50 MB limit, skipped.',
-      'error_crop_required': 'Crop mode requires both width and height',
-      'error_cannot_read': 'Unable to read image',
-      'error_cannot_load': 'Unable to load image',
-      'error_cannot_output': 'Unable to output image',
-      'error_no_canvas': 'Browser does not support image processing',
-      'error_dimension': '{label} must be between 1 and 10000 px',
-      'error_packing': 'Packing failed: {error}',
-      'error_packing_title': 'Packing…',
-      
-      // Coffee link
-      'coffee_link': '☕ Buy me a coffee',
-    }
+// 此檔由 scripts/build.js 產生，請勿直接修改（來源：locales/*.js）
+// 頁面語言由網址決定（/<lang>/），這裡只提供 script.js 執行時需要的動態文字
+const i18n = (() => {
+  const MESSAGES = {
+  "zh-tw": {
+    "btn_download": "下載",
+    "btn_remove": "移除",
+    "status_pending": "等待中",
+    "status_processing": "處理中",
+    "status_error": "失敗",
+    "error_max_size": "「{name}」超過 50 MB 限制，已跳過。",
+    "error_crop_required": "裁切模式需要同時填寫寬度與高度",
+    "error_cannot_read": "無法讀取圖片",
+    "error_cannot_load": "無法載入圖片",
+    "error_cannot_output": "無法輸出圖片",
+    "error_no_canvas": "瀏覽器不支援圖片處理",
+    "error_dimension": "{label} 必須介於 1 到 10000 px",
+    "error_packing": "打包失敗：{error}",
+    "error_packing_title": "打包中…",
+    "label_crop_width": "裁切寬度",
+    "label_crop_height": "裁切高度"
   },
-
-  t(key, replacements = {}) {
-    let text = this.translations[this.currentLang]?.[key] || 
-               this.translations['zh-TW'][key] || 
-               key;
-    
-    // Replace placeholders like {name}, {error}, {label}, {count}
-    for (const [k, v] of Object.entries(replacements)) {
-      text = text.replace(new RegExp(String.raw`\{${k}\}`, 'g'), v);
-    }
-    
-    return text;
+  "en": {
+    "btn_download": "Download",
+    "btn_remove": "Remove",
+    "status_pending": "Pending",
+    "status_processing": "Processing",
+    "status_error": "Failed",
+    "error_max_size": "\"{name}\" exceeds the 50 MB limit and was skipped.",
+    "error_crop_required": "Crop mode requires both width and height",
+    "error_cannot_read": "Unable to read image",
+    "error_cannot_load": "Unable to load image",
+    "error_cannot_output": "Unable to export image",
+    "error_no_canvas": "Your browser does not support image processing",
+    "error_dimension": "{label} must be between 1 and 10000 px",
+    "error_packing": "Packing failed: {error}",
+    "error_packing_title": "Packing…",
+    "label_crop_width": "Crop Width",
+    "label_crop_height": "Crop Height"
   },
-
-  setLanguage(lang) {
-    if (this.translations[lang]) {
-      this.currentLang = lang;
-      localStorage.setItem('tinyimage_lang', lang);
-      this.updateUI();
-    }
+  "ja": {
+    "btn_download": "ダウンロード",
+    "btn_remove": "削除",
+    "status_pending": "待機中",
+    "status_processing": "処理中",
+    "status_error": "失敗",
+    "error_max_size": "「{name}」は 50 MB を超えているためスキップしました。",
+    "error_crop_required": "トリミングには幅と高さの両方が必要です",
+    "error_cannot_read": "画像を読み込めません",
+    "error_cannot_load": "画像を表示できません",
+    "error_cannot_output": "画像を書き出せません",
+    "error_no_canvas": "お使いのブラウザは画像処理に対応していません",
+    "error_dimension": "{label}は 1〜10000 px で入力してください",
+    "error_packing": "ZIP の作成に失敗しました：{error}",
+    "error_packing_title": "ZIP 作成中…",
+    "label_crop_width": "切り抜き幅",
+    "label_crop_height": "切り抜き高さ"
   },
-
-  updateUI() {
-    // Update all elements with data-i18n attribute
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-      const key = el.dataset.i18n;
-      el.textContent = this.t(key);
-    });
-
-    // Update translated element attributes such as input placeholders.
-    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-      el.placeholder = this.t(el.dataset.i18nPlaceholder);
-    });
-
-    document.querySelectorAll('[data-i18n-aria-label]').forEach(el => {
-      el.setAttribute('aria-label', this.t(el.dataset.i18nAriaLabel));
-    });
-
-    // Update html lang attribute
-    document.documentElement.lang = this.currentLang === 'en' ? 'en' : 'zh-TW';
-    
-    // Update language button active state
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-      const isActive = btn.dataset.lang === this.currentLang;
-      btn.classList.toggle('active', isActive);
-      btn.setAttribute('aria-pressed', String(isActive));
-    });
+  "ko": {
+    "btn_download": "다운로드",
+    "btn_remove": "삭제",
+    "status_pending": "대기 중",
+    "status_processing": "처리 중",
+    "status_error": "실패",
+    "error_max_size": "\"{name}\" 파일이 50 MB를 초과하여 건너뛰었습니다.",
+    "error_crop_required": "자르기에는 너비와 높이가 모두 필요합니다",
+    "error_cannot_read": "이미지를 읽을 수 없습니다",
+    "error_cannot_load": "이미지를 불러올 수 없습니다",
+    "error_cannot_output": "이미지를 저장할 수 없습니다",
+    "error_no_canvas": "이 브라우저는 이미지 처리를 지원하지 않습니다",
+    "error_dimension": "{label}은(는) 1~10000 px 사이여야 합니다",
+    "error_packing": "ZIP 생성 실패: {error}",
+    "error_packing_title": "ZIP 생성 중…",
+    "label_crop_width": "자를 너비",
+    "label_crop_height": "자를 높이"
   },
-
-  init() {
-    // Set up language switcher
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        this.setLanguage(btn.dataset.lang);
-      });
-    });
-
-    // Initial UI update
-    this.updateUI();
+  "es": {
+    "btn_download": "Descargar",
+    "btn_remove": "Quitar",
+    "status_pending": "En espera",
+    "status_processing": "Procesando",
+    "status_error": "Error",
+    "error_max_size": "\"{name}\" supera el límite de 50 MB y se omitió.",
+    "error_crop_required": "Para recortar necesitas indicar ancho y alto",
+    "error_cannot_read": "No se puede leer la imagen",
+    "error_cannot_load": "No se puede cargar la imagen",
+    "error_cannot_output": "No se puede exportar la imagen",
+    "error_no_canvas": "Tu navegador no admite el procesamiento de imágenes",
+    "error_dimension": "{label} debe estar entre 1 y 10000 px",
+    "error_packing": "No se pudo crear el ZIP: {error}",
+    "error_packing_title": "Creando ZIP…",
+    "label_crop_width": "Ancho de recorte",
+    "label_crop_height": "Alto de recorte"
+  },
+  "pt": {
+    "btn_download": "Baixar",
+    "btn_remove": "Remover",
+    "status_pending": "Aguardando",
+    "status_processing": "Processando",
+    "status_error": "Falhou",
+    "error_max_size": "\"{name}\" ultrapassa o limite de 50 MB e foi ignorado.",
+    "error_crop_required": "Para recortar, informe a largura e a altura",
+    "error_cannot_read": "Não foi possível ler a imagem",
+    "error_cannot_load": "Não foi possível carregar a imagem",
+    "error_cannot_output": "Não foi possível exportar a imagem",
+    "error_no_canvas": "Seu navegador não suporta processamento de imagens",
+    "error_dimension": "{label} deve estar entre 1 e 10000 px",
+    "error_packing": "Falha ao criar o ZIP: {error}",
+    "error_packing_title": "Criando ZIP…",
+    "label_crop_width": "Largura do recorte",
+    "label_crop_height": "Altura do recorte"
   }
 };
+  const locale = document.documentElement.dataset.locale;
+  const dict = MESSAGES[locale] || MESSAGES.en;
 
-// Initialize i18n when DOM is ready
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', () => i18n.init());
-} else {
-  i18n.init();
-}
+  // 記住使用者選擇的語言，之後造訪 / 時由伺服器導向該語言
+  document.addEventListener('click', e => {
+    const link = e.target.closest('a[data-lang]');
+    if (link) document.cookie = `tinyimage_lang=${link.dataset.lang}; path=/; max-age=31536000; SameSite=Lax`;
+  });
+
+  // 點選選單以外的地方時關閉語言選單
+  document.addEventListener('click', e => {
+    document.querySelectorAll('details.lang-menu[open]').forEach(menu => {
+      if (!menu.contains(e.target)) menu.removeAttribute('open');
+    });
+  });
+
+  return {
+    locale,
+    t(key, replacements = {}) {
+      let text = dict[key] ?? MESSAGES.en[key] ?? key;
+      for (const [k, v] of Object.entries(replacements)) {
+        text = text.replaceAll(`{${k}}`, v);
+      }
+      return text;
+    },
+  };
+})();
