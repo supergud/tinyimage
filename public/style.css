@@ -44,7 +44,7 @@ body {
 /* ── Header ── */
 .header {
     background: linear-gradient(135deg, #1a6b36 0%, #14917a 100%);
-    padding: 48px 24px 40px;
+    padding: 28px 24px 22px;
     text-align: center;
     color: #fff;
 }
@@ -58,7 +58,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 4px;
 }
 
 .lang-switcher {
@@ -142,7 +142,7 @@ body {
 /* ── Main Layout ── */
 .main {
     flex: 1;
-    padding: 36px 20px;
+    padding: 24px 20px;
 }
 
 .container {
@@ -156,14 +156,14 @@ body {
     border-radius: var(--radius);
     box-shadow: var(--shadow);
     padding: 24px;
-    margin-bottom: 18px;
+    margin-bottom: 14px;
 }
 
 /* ── Tabs ── */
 .tabs {
     display: flex;
     gap: 10px;
-    margin-bottom: 18px;
+    margin-bottom: 14px;
 }
 
 .tab-btn {
@@ -324,7 +324,7 @@ body {
     font: inherit;
     color: inherit;
     width: 100%;
-    padding: 64px 40px;
+    padding: 36px 40px;
     text-align: center;
     border: 2.5px dashed var(--border);
     border-radius: var(--radius);
@@ -346,7 +346,7 @@ body {
 
 .drop-icon {
     color: var(--border);
-    margin: 0 auto 18px;
+    margin: 0 auto 12px;
     display: block;
     transition: transform var(--transition);
 }
@@ -727,7 +727,7 @@ body {
 
 /* ── Footer ── */
 .footer {
-    padding: 20px;
+    padding: 12px 20px;
     text-align: center;
     font-size: .78rem;
     color: var(--text-muted);
@@ -737,12 +737,12 @@ body {
 }
 
 .footer-support {
-    margin: 12px 0 0;
+    margin: 6px 0 0;
     font-size: 0.85rem;
 }
 
 .footer-copyright {
-    margin-top: 8px;
+    margin-top: 4px;
     font-size: .72rem;
     color: #9aa5a6;
 }
