@@ -1,0 +1,121 @@
+// Português (Brasil)
+module.exports = {
+  slug: 'pt',
+  htmlLang: 'pt-BR',
+  hreflang: 'pt',
+  ogLocale: 'pt_BR',
+  name: 'Português',
+
+  meta: {
+    title: 'Comprimir e recortar imagens grátis online | TinyImage sem upload',
+    description: 'Comprima e recorte imagens JPG, PNG e WebP grátis e online. Diminua o tamanho de várias fotos de uma vez e recorte no formato do Instagram, WhatsApp, Mercado Livre e Shopee. Tudo acontece no seu navegador: suas imagens não são enviadas.',
+    keywords: 'comprimir imagem,comprimir foto online,diminuir tamanho de imagem,reduzir tamanho de foto,recortar imagem,redimensionar imagem,comprimir jpg,comprimir png,webp,tamanho de imagem instagram',
+  },
+  h1: 'Comprima e recorte imagens grátis — sem enviar seus arquivos',
+
+  ui: {
+    language_switcher: 'Selecionar idioma',
+    tab_compress: 'Comprimir / Reduzir',
+    tab_crop: 'Recortar e comprimir',
+    label_width: 'Largura máxima',
+    label_height: 'Altura máxima',
+    label_crop_width: 'Largura do recorte',
+    label_crop_height: 'Altura do recorte',
+    label_crop_position: 'Ponto de ancoragem',
+    label_crop_preset: 'Tamanhos comuns',
+    badge_optional: 'Opcional',
+    badge_required: 'Obrigatório',
+    hint_resize: 'Deixe em branco para manter o tamanho original e só comprimir; preencha para reduzir proporcionalmente',
+    hint_crop: 'A imagem é recortada no tamanho exato; o que sobrar é cortado de acordo com o ponto de ancoragem',
+    placeholder_unlimited: 'Sem limite',
+    placeholder_crop_width: 'ex.: 800',
+    placeholder_crop_height: 'ex.: 600',
+    drop_title: 'Arraste suas imagens para cá',
+    drop_or: '— ou —',
+    drop_btn: 'Escolher imagens',
+    drop_hint: 'Suporta JPG · PNG · WebP · GIF · AVIF　　Máx. 50 MB por arquivo',
+    crop_centre: '⊙ Centro',
+    crop_north: '↑ Topo',
+    crop_south: '↓ Base',
+    crop_east: '→ Direita',
+    crop_west: '← Esquerda',
+    crop_northwest: '↖ Superior esquerdo',
+    crop_northeast: '↗ Superior direito',
+    crop_southwest: '↙ Inferior esquerdo',
+    crop_southeast: '↘ Inferior direito',
+    file_list_header_prefix: 'Lista de arquivos',
+    btn_clear_all: 'Limpar tudo',
+    btn_process_all: 'Processar',
+    btn_download_all: 'Baixar tudo (ZIP)',
+    footer: 'TinyImage — As imagens são processadas no seu navegador e nunca são enviadas a um servidor',
+    copyright: '© 2026 Bruce Lee · TinyImage. Todos os direitos reservados.',
+    coffee_link: '☕ Me pague um café',
+  },
+
+  messages: {
+    btn_download: 'Baixar',
+    btn_remove: 'Remover',
+    status_pending: 'Aguardando',
+    status_processing: 'Processando',
+    status_error: 'Falhou',
+    error_max_size: '"{name}" ultrapassa o limite de 50 MB e foi ignorado.',
+    error_crop_required: 'Para recortar, informe a largura e a altura',
+    error_cannot_read: 'Não foi possível ler a imagem',
+    error_cannot_load: 'Não foi possível carregar a imagem',
+    error_cannot_output: 'Não foi possível exportar a imagem',
+    error_no_canvas: 'Seu navegador não suporta processamento de imagens',
+    error_dimension: '{label} deve estar entre 1 e 10000 px',
+    error_packing: 'Falha ao criar o ZIP: {error}',
+    error_packing_title: 'Criando ZIP…',
+  },
+
+  presets: [
+    { platform: 'Instagram', items: [
+      [1080, 1080, 'Quadrado 1:1'], [1080, 1350, 'Retrato 4:5'], [1080, 566, 'Paisagem 1.91:1'],
+      [1080, 1920, 'Stories / Reels'], [320, 320, 'Perfil'],
+    ] },
+    { platform: 'Facebook', items: [
+      [1080, 1080, 'Post 1:1'], [1200, 630, 'Prévia de link'],
+      [851, 315, 'Capa da página'], [1080, 1920, 'Stories'],
+    ] },
+    { platform: 'WhatsApp · Mercado Livre · Shopee', items: [
+      [1080, 1920, 'Status do WhatsApp'], [1200, 1200, 'Produto Mercado Livre'],
+      [1024, 1024, 'Produto Shopee'], [1280, 720, 'Thumbnail do YouTube'],
+    ] },
+  ],
+
+  features: {
+    title: 'Recursos',
+    intro: 'O TinyImage é um compressor de imagens online e gratuito, sem cadastro e sem instalação. Diminua o tamanho das suas fotos, redimensione ou recorte nas medidas exatas de cada rede social direto no navegador, sem que as imagens saiam do seu aparelho.',
+    items: [
+      { title: 'Comprimir imagens', text: 'Recodifica JPG, PNG e WebP para reduzir bastante o tamanho do arquivo mantendo a nitidez.' },
+      { title: 'Redimensionar sem distorcer', text: 'Informe uma largura ou altura máxima e a foto é reduzida proporcionalmente, sem nunca ser ampliada.' },
+      { title: 'Recorte exato', text: 'Escolha largura, altura e ponto de ancoragem para ter imagens perfeitas para Instagram, Mercado Livre ou Shopee.' },
+      { title: 'Processamento em lote e ZIP', text: 'Arraste várias imagens de uma vez e baixe uma por uma ou todas juntas em um ZIP.' },
+      { title: 'Privacidade garantida', text: 'Tudo é processado no navegador. Nada é enviado, então dá para usar com documentos pessoais e fotos de trabalho.' },
+      { title: 'Nomes de arquivo organizados', text: 'Caracteres especiais são removidos e o tamanho final é adicionado ao nome de cada arquivo.' },
+    ],
+  },
+
+  useCases: {
+    title: 'Usos mais comuns',
+    items: [
+      { title: 'Vender no Mercado Livre, Shopee e OLX', text: 'Recorte as fotos dos produtos no formato quadrado e comprima para anunciar mais rápido.' },
+      { title: 'Enviar fotos pelo WhatsApp e e-mail', text: 'Diminua o tamanho das fotos do celular para enviar sem travar e economizar dados.' },
+      { title: 'Postar no Instagram e Facebook', text: 'Use os tamanhos prontos para posts, stories e capas sem precisar consultar tabelas de medidas.' },
+      { title: 'gov.br, ENEM e inscrições online', text: 'Comprima fotos de documentos para respeitar o limite de tamanho dos formulários de órgãos públicos e faculdades.' },
+    ],
+  },
+
+  faq: {
+    title: 'Perguntas frequentes',
+    items: [
+      { q: 'O TinyImage é grátis?', a: 'Sim, é totalmente grátis. Não precisa de cadastro nem instalação e não há limite diário.' },
+      { q: 'Minhas imagens são enviadas para um servidor?', a: 'Não. A compressão e o recorte acontecem dentro do seu navegador, então suas imagens nunca saem do seu aparelho.' },
+      { q: 'Quais formatos de imagem são suportados?', a: 'Você pode abrir JPG, PNG, WebP, GIF, AVIF e qualquer formato que o navegador consiga ler. JPG, PNG e WebP mantêm o formato; os demais são convertidos para JPG.' },
+      { q: 'Comprimir diminui a qualidade da imagem?', a: 'JPG e WebP usam configurações de alta qualidade, então a diferença quase não aparece. PNG é sem perdas: combine com o redimensionamento para arquivos menores.' },
+      { q: 'Qual o tamanho ideal para fotos de produto no Mercado Livre?', a: 'Recomendamos 1200×1200 em formato quadrado. Na aba "Recortar e comprimir", clique em "Produto Mercado Livre" para aplicar na hora.' },
+      { q: 'Quantas imagens posso processar de uma vez?', a: 'Você pode processar várias imagens em lote, com até 50 MB por arquivo.' },
+    ],
+  },
+};

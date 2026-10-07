@@ -1,0 +1,120 @@
+// 한국어
+module.exports = {
+  slug: 'ko',
+  htmlLang: 'ko',
+  hreflang: 'ko',
+  ogLocale: 'ko_KR',
+  name: '한국어',
+
+  meta: {
+    title: '무료 온라인 이미지 압축·자르기 도구 | TinyImage 업로드 없음',
+    description: 'JPG, PNG, WebP 이미지를 무료로 온라인 압축하고 자르세요. 여러 장을 한 번에 압축하고 인스타그램, 카카오톡, 네이버 스마트스토어, 유튜브 크기로 바로 자를 수 있습니다. 모든 처리는 브라우저에서 이루어져 이미지가 업로드되지 않습니다.',
+    keywords: '이미지 압축,사진 압축,이미지 용량 줄이기,사진 용량 줄이기,이미지 자르기,이미지 크기 조절,JPG 압축,PNG 압축,WebP,인스타 사진 사이즈',
+  },
+  h1: '무료 온라인 이미지 압축·자르기 — 업로드 없이 안전하게',
+
+  ui: {
+    language_switcher: '언어 선택',
+    tab_compress: '압축 / 축소',
+    tab_crop: '자르기 + 압축',
+    label_width: '최대 너비',
+    label_height: '최대 높이',
+    label_crop_width: '자를 너비',
+    label_crop_height: '자를 높이',
+    label_crop_position: '기준 위치',
+    label_crop_preset: '자주 쓰는 크기',
+    badge_optional: '선택',
+    badge_required: '필수',
+    hint_resize: '비워 두면 원본 크기로 압축만 하고, 입력하면 비율을 유지한 채 지정한 크기 안으로 줄입니다',
+    hint_crop: '지정한 크기로 정확하게 자르며, 벗어난 부분은 기준 위치에 맞춰 잘립니다',
+    placeholder_unlimited: '제한 없음',
+    placeholder_crop_width: '예: 800',
+    placeholder_crop_height: '예: 600',
+    drop_title: '여기로 이미지를 끌어오세요',
+    drop_or: '— 또는 —',
+    drop_btn: '이미지 선택',
+    drop_hint: 'JPG · PNG · WebP · GIF · AVIF 지원　　파일당 최대 50 MB',
+    crop_centre: '⊙ 가운데',
+    crop_north: '↑ 위',
+    crop_south: '↓ 아래',
+    crop_east: '→ 오른쪽',
+    crop_west: '← 왼쪽',
+    crop_northwest: '↖ 왼쪽 위',
+    crop_northeast: '↗ 오른쪽 위',
+    crop_southwest: '↙ 왼쪽 아래',
+    crop_southeast: '↘ 오른쪽 아래',
+    file_list_header_prefix: '처리 목록',
+    btn_clear_all: '모두 지우기',
+    btn_process_all: '처리 시작',
+    btn_download_all: '전체 다운로드 (ZIP)',
+    footer: 'TinyImage — 이미지는 브라우저에서 처리되며 서버로 업로드되지 않습니다',
+    copyright: '© 2026 Bruce Lee · TinyImage. All rights reserved.',
+    coffee_link: '☕ 커피 한 잔 후원하기',
+  },
+
+  messages: {
+    btn_download: '다운로드',
+    btn_remove: '삭제',
+    status_pending: '대기 중',
+    status_processing: '처리 중',
+    status_error: '실패',
+    error_max_size: '"{name}" 파일이 50 MB를 초과하여 건너뛰었습니다.',
+    error_crop_required: '자르기에는 너비와 높이가 모두 필요합니다',
+    error_cannot_read: '이미지를 읽을 수 없습니다',
+    error_cannot_load: '이미지를 불러올 수 없습니다',
+    error_cannot_output: '이미지를 저장할 수 없습니다',
+    error_no_canvas: '이 브라우저는 이미지 처리를 지원하지 않습니다',
+    error_dimension: '{label}은(는) 1~10000 px 사이여야 합니다',
+    error_packing: 'ZIP 생성 실패: {error}',
+    error_packing_title: 'ZIP 생성 중…',
+  },
+
+  presets: [
+    { platform: 'Instagram', items: [
+      [1080, 1080, '정사각형 1:1'], [1080, 1350, '세로 4:5'], [1080, 566, '가로 1.91:1'],
+      [1080, 1920, '스토리／릴스'], [320, 320, '프로필'],
+    ] },
+    { platform: '카카오톡・네이버', items: [
+      [800, 400, '카카오톡 채널 와이드'], [640, 640, '카카오톡 프로필'],
+      [1000, 1000, '스마트스토어 대표 이미지'],
+    ] },
+    { platform: 'YouTube・Facebook', items: [
+      [1280, 720, '유튜브 썸네일'], [1080, 1350, '페이스북 게시물 4:5'], [1200, 630, '링크 미리보기'],
+    ] },
+  ],
+
+  features: {
+    title: '기능 소개',
+    intro: 'TinyImage는 회원가입도 설치도 필요 없는 무료 온라인 이미지 압축 도구입니다. 사진 용량 줄이기, 이미지 크기 조절, SNS용 사이즈로 자르기까지 브라우저에서 바로 끝낼 수 있으며, 이미지는 기기 밖으로 나가지 않습니다.',
+    items: [
+      { title: '이미지 압축', text: 'JPG, PNG, WebP를 다시 인코딩해 화질은 유지하면서 파일 용량을 크게 줄입니다.' },
+      { title: '비율 유지 축소', text: '최대 너비나 높이만 입력하면 왜곡 없이 줄어들며, 확대되어 흐려지는 일도 없습니다.' },
+      { title: '정확한 크기로 자르기', text: '너비, 높이, 기준 위치를 지정해 인스타그램, 카카오톡, 스마트스토어에 딱 맞게 자릅니다.' },
+      { title: '일괄 처리와 ZIP 다운로드', text: '여러 장을 한 번에 끌어다 놓고, 처리 후 한 장씩 또는 ZIP으로 한꺼번에 받을 수 있습니다.' },
+      { title: '업로드 없는 개인정보 보호', text: '압축과 자르기 모두 브라우저에서 처리되어 신분증, 계약서 사진도 안심하고 다룰 수 있습니다.' },
+      { title: '깔끔한 파일 이름', text: '특수문자를 자동으로 정리하고 실제 출력 크기를 파일 이름에 붙여 관리가 쉽습니다.' },
+    ],
+  },
+
+  useCases: {
+    title: '이럴 때 유용해요',
+    items: [
+      { title: '스마트스토어·쿠팡 상품 등록', text: '휴대폰으로 찍은 상품 사진을 정사각형으로 자르고 압축해 상세페이지 로딩을 빠르게 합니다.' },
+      { title: '당근 중고거래 사진', text: '큰 원본 사진의 용량을 줄여 빠르게 올리고, 대화 중 사진 전송도 가볍게 할 수 있습니다.' },
+      { title: '카카오톡 채널 메시지', text: '와이드 이미지 800×400 등 채널 메시지에 맞는 크기로 바로 자를 수 있습니다.' },
+      { title: '정부24·학교 제출 서류', text: '용량 제한이 있는 온라인 신청서에 증명사진이나 서류 사진을 압축해 바로 제출하세요.' },
+    ],
+  },
+
+  faq: {
+    title: '자주 묻는 질문',
+    items: [
+      { q: 'TinyImage는 무료인가요?', a: '네, 완전히 무료입니다. 회원가입이나 설치가 필요 없고 하루 사용 횟수 제한도 없습니다.' },
+      { q: '이미지가 서버로 업로드되나요?', a: '아니요. 모든 압축과 자르기는 브라우저 안에서 처리되므로 이미지가 기기 밖으로 전송되지 않습니다.' },
+      { q: '어떤 이미지 형식을 지원하나요?', a: 'JPG, PNG, WebP, GIF, AVIF 등 브라우저에서 열 수 있는 형식을 지원합니다. JPG, PNG, WebP는 같은 형식으로, 나머지는 JPG로 저장됩니다.' },
+      { q: '압축하면 화질이 떨어지나요?', a: 'JPG와 WebP는 고화질 설정을 사용해 눈으로 보기에 차이가 거의 없습니다. PNG는 무손실 형식이므로 더 줄이고 싶다면 크기 축소와 함께 사용하세요.' },
+      { q: '인스타그램 게시물 최적 크기는?', a: '정사각형은 1080×1080, 세로형은 1080×1350, 스토리와 릴스는 1080×1920입니다. "자르기 + 압축" 탭의 버튼으로 바로 적용할 수 있습니다.' },
+      { q: '한 번에 몇 장까지 처리할 수 있나요?', a: '여러 장을 한 번에 일괄 처리할 수 있으며, 파일당 최대 50 MB까지 지원합니다.' },
+    ],
+  },
+};

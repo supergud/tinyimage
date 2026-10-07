@@ -231,7 +231,7 @@ function buildItem(entry) {
     </div>
     <div class="file-actions">
       ${buildActionHtml(entry)}
-      <button class="btn-remove" data-action="remove" data-id="${entry.id}" title="移除">×</button>
+      <button class="btn-remove" data-action="remove" data-id="${entry.id}" title="${i18n.t('btn_remove')}" aria-label="${i18n.t('btn_remove')}">×</button>
     </div>`;
 
   return div;

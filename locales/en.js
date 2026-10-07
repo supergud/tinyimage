@@ -1,0 +1,121 @@
+// English
+module.exports = {
+  slug: 'en',
+  htmlLang: 'en',
+  hreflang: 'en',
+  ogLocale: 'en_US',
+  name: 'English',
+
+  meta: {
+    title: 'Free Online Image Compressor & Cropper | TinyImage — No Uploads',
+    description: 'Compress and crop JPG, PNG and WebP images online for free. Batch compress photos and crop to Instagram, Facebook, X, Pinterest and YouTube sizes. Everything runs in your browser — no uploads.',
+    keywords: 'image compressor,compress image online,reduce image size,photo compressor,crop image,resize image,compress jpg,compress png,webp,instagram image size',
+  },
+  h1: 'Free Online Image Compressor & Cropper — Private, No Uploads',
+
+  ui: {
+    language_switcher: 'Language selection',
+    tab_compress: 'Compress / Resize',
+    tab_crop: 'Crop & Compress',
+    label_width: 'Max Width',
+    label_height: 'Max Height',
+    label_crop_width: 'Crop Width',
+    label_crop_height: 'Crop Height',
+    label_crop_position: 'Crop Anchor',
+    label_crop_preset: 'Common Sizes',
+    badge_optional: 'Optional',
+    badge_required: 'Required',
+    hint_resize: 'Leave empty to keep the original size and only compress; fill in to scale down proportionally to fit',
+    hint_crop: 'The image is cropped to the exact size; anything outside is trimmed based on the anchor',
+    placeholder_unlimited: 'No limit',
+    placeholder_crop_width: 'e.g. 800',
+    placeholder_crop_height: 'e.g. 600',
+    drop_title: 'Drag images here',
+    drop_or: '— or —',
+    drop_btn: 'Choose Images',
+    drop_hint: 'Supports JPG · PNG · WebP · GIF · AVIF　　Max 50 MB per file',
+    crop_centre: '⊙ Center',
+    crop_north: '↑ Top',
+    crop_south: '↓ Bottom',
+    crop_east: '→ Right',
+    crop_west: '← Left',
+    crop_northwest: '↖ Top-left',
+    crop_northeast: '↗ Top-right',
+    crop_southwest: '↙ Bottom-left',
+    crop_southeast: '↘ Bottom-right',
+    file_list_header_prefix: 'Queue',
+    btn_clear_all: 'Clear All',
+    btn_process_all: 'Start Processing',
+    btn_download_all: 'Download All (ZIP)',
+    footer: 'TinyImage — Images are processed locally and never uploaded to any server',
+    copyright: '© 2026 Bruce Lee · TinyImage. All rights reserved.',
+    coffee_link: '☕ Buy me a coffee',
+  },
+
+  messages: {
+    btn_download: 'Download',
+    btn_remove: 'Remove',
+    status_pending: 'Pending',
+    status_processing: 'Processing',
+    status_error: 'Failed',
+    error_max_size: '"{name}" exceeds the 50 MB limit and was skipped.',
+    error_crop_required: 'Crop mode requires both width and height',
+    error_cannot_read: 'Unable to read image',
+    error_cannot_load: 'Unable to load image',
+    error_cannot_output: 'Unable to export image',
+    error_no_canvas: 'Your browser does not support image processing',
+    error_dimension: '{label} must be between 1 and 10000 px',
+    error_packing: 'Packing failed: {error}',
+    error_packing_title: 'Packing…',
+  },
+
+  presets: [
+    { platform: 'Instagram', items: [
+      [1080, 1080, 'Square 1:1'], [1080, 1350, 'Portrait 4:5'], [1080, 566, 'Landscape 1.91:1'],
+      [1080, 1920, 'Story / Reels'], [320, 320, 'Profile'],
+    ] },
+    { platform: 'Facebook', items: [
+      [1080, 1080, 'Post 1:1'], [1080, 1350, 'Post 4:5'], [1200, 630, 'Link Preview'],
+      [851, 315, 'Page Cover'], [1080, 1920, 'Story'],
+    ] },
+    { platform: 'X · Pinterest · YouTube', items: [
+      [1600, 900, 'X Post 16:9'], [1500, 500, 'X Header'], [1000, 1500, 'Pinterest Pin'],
+      [1280, 720, 'YouTube Thumbnail'], [1200, 627, 'LinkedIn Post'],
+    ] },
+  ],
+
+  features: {
+    title: 'Features',
+    intro: 'TinyImage is a free online image compressor that needs no sign-up and no install. Reduce image file size, resize photos, or crop them to the exact dimensions social platforms expect — all directly in your browser, so your images never leave your device.',
+    items: [
+      { title: 'Compress images', text: 'Re-encode JPG, PNG and WebP to shrink file size while keeping images sharp, for faster websites and emails.' },
+      { title: 'Resize proportionally', text: 'Set a maximum width or height and the photo scales down without distortion — never upscaled.' },
+      { title: 'Crop to exact size', text: 'Pick a width, height and anchor point to get pixel-perfect images for Instagram, Facebook, X, Pinterest and YouTube.' },
+      { title: 'Batch processing & ZIP', text: 'Drop in multiple images at once, then download them one by one or all together as a ZIP.' },
+      { title: 'Private by design', text: 'Compression and cropping run entirely in your browser. Nothing is uploaded, so it is safe for IDs, receipts and client work.' },
+      { title: 'Clean file names', text: 'Special characters are removed and the output size is added to each file name for easy organizing.' },
+    ],
+  },
+
+  useCases: {
+    title: 'Popular Use Cases',
+    items: [
+      { title: 'Etsy, eBay & Shopify listings', text: 'Crop product photos to clean, consistent ratios and compress them so your store loads fast.' },
+      { title: 'Email attachments', text: 'Shrink large phone photos so they fit under Gmail and Outlook attachment limits.' },
+      { title: 'Social media posts', text: 'One-click presets for Instagram, Facebook, X, Pinterest and LinkedIn — no more looking up size charts.' },
+      { title: 'Websites & blogs', text: 'Compress hero images and blog photos to improve page speed and Core Web Vitals.' },
+    ],
+  },
+
+  faq: {
+    title: 'FAQ',
+    items: [
+      { q: 'Is TinyImage free?', a: 'Yes. It is completely free with no sign-up, no install and no daily limits.' },
+      { q: 'Are my images uploaded to a server?', a: 'No. All compression and cropping happen inside your browser, so your images never leave your device.' },
+      { q: 'Which image formats are supported?', a: 'You can open JPG, PNG, WebP, GIF, AVIF and any other format your browser can decode. JPG, PNG and WebP keep their format; others are converted to JPG.' },
+      { q: 'Will compression reduce image quality?', a: 'JPG and WebP use high-quality settings, so differences are barely visible. PNG is lossless — combine it with resizing for smaller files.' },
+      { q: 'What is the best Instagram post size?', a: 'Use 1080×1080 for square posts, 1080×1350 for portrait posts and 1080×1920 for Stories and Reels. Pick a preset in the Crop & Compress tab to apply it instantly.' },
+      { q: 'How many images can I process at once?', a: 'You can batch process as many images as you like, up to 50 MB per file.' },
+    ],
+  },
+};
