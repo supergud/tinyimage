@@ -311,6 +311,82 @@ body {
     margin-top: 1px;
 }
 
+/* ── Crop Presets ── */
+.crop-presets {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.preset-title {
+    font-size: .82rem;
+    font-weight: 700;
+    letter-spacing: .5px;
+    color: var(--text-muted);
+}
+
+.preset-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+}
+
+.preset-platform {
+    width: 80px;
+    flex-shrink: 0;
+    font-size: .78rem;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.preset-btn {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 6px;
+    padding: 5px 10px;
+    font: inherit;
+    font-size: .8rem;
+    color: var(--text);
+    background: var(--card);
+    border: 1.5px solid var(--border);
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all var(--transition);
+}
+
+.preset-btn small {
+    font-size: .72rem;
+    color: var(--text-muted);
+}
+
+.preset-btn:hover {
+    border-color: var(--primary);
+    background: var(--primary-light);
+}
+
+.preset-btn:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+.preset-btn.active {
+    border-color: var(--primary);
+    background: var(--primary);
+    color: #fff;
+}
+
+.preset-btn.active small {
+    color: rgba(255, 255, 255, .85);
+}
+
+@media (max-width: 600px) {
+    .preset-platform {
+        width: 100%;
+    }
+}
+
 /* ── Drop Zone ── */
 .upload-card {
     padding: 0;

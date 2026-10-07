@@ -70,7 +70,19 @@ const i18n = {
       'crop_northeast': '↗ 右上',
       'crop_southwest': '↙ 左下',
       'crop_southeast': '↘ 右下',
-      
+
+      // Crop presets
+      'label_crop_preset': '常用尺寸',
+      'preset_square': '方形 1:1',
+      'preset_portrait45': '直式 4:5',
+      'preset_portrait34': '直式 3:4',
+      'preset_landscape': '橫式 1.91:1',
+      'preset_link': '連結分享圖',
+      'preset_cover': '粉專封面',
+      'preset_story': '限時動態',
+      'preset_story_reels': '限動／Reels',
+      'preset_profile': '大頭貼',
+
       // File list
       'file_list_header': '處理清單（{count} 個檔案）',
       'btn_clear_all': '清除全部',
@@ -145,7 +157,19 @@ const i18n = {
       'crop_northeast': '↗ Top-right',
       'crop_southwest': '↙ Bottom-left',
       'crop_southeast': '↘ Bottom-right',
-      
+
+      // Crop presets
+      'label_crop_preset': 'Common Sizes',
+      'preset_square': 'Square 1:1',
+      'preset_portrait45': 'Portrait 4:5',
+      'preset_portrait34': 'Portrait 3:4',
+      'preset_landscape': 'Landscape 1.91:1',
+      'preset_link': 'Link Preview',
+      'preset_cover': 'Page Cover',
+      'preset_story': 'Story',
+      'preset_story_reels': 'Story / Reels',
+      'preset_profile': 'Profile Photo',
+
       // File list
       'file_list_header': 'Processing Queue ({count} files)',
       'btn_clear_all': 'Clear All',
