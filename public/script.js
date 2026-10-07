@@ -278,20 +278,7 @@ async function processEntry(entry) {
   updateItem(entry);
 
   try {
-    const request = buildProcessingRequest(entry);
-    let result;
-
-    try {
-      result = await processInBrowser(request);
-    } catch (browserErr) {
-      console.warn('Browser image processing failed; trying API.', browserErr);
-      try {
-        result = await processViaApi(request);
-      } catch (apiErr) {
-        if (apiErr.fallbackToBrowser) throw browserErr;
-        throw apiErr;
-      }
-    }
+    const result = await processInBrowser(buildProcessingRequest(entry));
 
     entry.status        = 'done';
     entry.processedBlob = result.blob;
@@ -310,69 +297,16 @@ async function processEntry(entry) {
 }
 
 function buildProcessingRequest(entry) {
-  const formData = new FormData();
-  formData.append('image', entry.file);
-
   if (state.mode === 'compress') {
     const width = document.getElementById('compress-width').value.trim();
     const height = document.getElementById('compress-height').value.trim();
-    if (width) formData.append('width', width);
-    if (height) formData.append('height', height);
-    return { entry, formData, apiUrl: '/api/compress', mode: 'compress', width, height };
+    return { entry, mode: 'compress', width, height };
   }
 
   const width = document.getElementById('crop-width').value.trim();
   const height = document.getElementById('crop-height').value.trim();
   const position = document.getElementById('crop-position').value;
-  formData.append('width', width);
-  formData.append('height', height);
-  formData.append('position', position);
-  return { entry, formData, apiUrl: '/api/crop', mode: 'crop', width, height, position };
-}
-
-async function processViaApi(request) {
-  let resp;
-  try {
-    resp = await fetch(request.apiUrl, { method: 'POST', body: request.formData });
-  } catch (err) {
-    err.fallbackToBrowser = true;
-    throw err;
-  }
-
-  if (!resp.ok) {
-    const err = new Error(await readResponseError(resp));
-    err.fallbackToBrowser = resp.status === 404 || resp.status === 405;
-    throw err;
-  }
-
-  const contentType = resp.headers.get('content-type') || '';
-  if (!contentType.startsWith('image/')) {
-    const err = new Error(i18n.t('error_api_no_image'));
-    err.fallbackToBrowser = true;
-    throw err;
-  }
-
-  const blob = await resp.blob();
-  const rawName = resp.headers.get('X-File-Name') || '';
-
-  return {
-    blob,
-    originalSize: Number.parseInt(resp.headers.get('X-Original-Size') || request.entry.file.size, 10),
-    processedSize: Number.parseInt(resp.headers.get('X-Compressed-Size') || blob.size, 10),
-    processedName: rawName ? decodeURIComponent(rawName) : request.entry.file.name,
-    outWidth: Number.parseInt(resp.headers.get('X-Output-Width') || '0', 10) || null,
-    outHeight: Number.parseInt(resp.headers.get('X-Output-Height') || '0', 10) || null,
-  };
-}
-
-async function readResponseError(resp) {
-  let msg = `HTTP ${resp.status}`;
-  try {
-    msg = (await resp.json()).error || msg;
-  } catch (parseErr) {
-    console.debug('無法解析錯誤回應', parseErr);
-  }
-  return msg;
+  return { entry, mode: 'crop', width, height, position };
 }
 
 async function processInBrowser(request) {
