@@ -10,7 +10,7 @@ Node.js + Express 只提供靜態檔案，以及 `/` 的語言導向。前端為
 ## 多國語言與 SEO
 - 語言與網址：繁中 `/zh-tw/`、English `/en/`、日本語 `/ja/`、한국어 `/ko/`、Español `/es/`、Português `/pt/`。
 - 每個語言頁面都有自己的 title、meta description、H1、功能說明、在地使用情境、FAQ（含 FAQPage JSON-LD）、在地常用裁切尺寸，以及完整的 hreflang（含 `x-default` → `/`）。
-- `/`：依 `tinyimage_lang` cookie 或 `Accept-Language` 302 導向對應語言；無法判斷時（如搜尋引擎爬蟲）顯示 `public/index.html` 語言選擇頁（x-default）。
+- `/`：依 `tinyimage_lang` cookie → 瀏覽器語言 → 預設英文（`/en/`）自動導向。`server.js` 以 302 導向（`Accept-Language`）；若以靜態主機提供，`public/index.html` 內的前端腳本會用 `navigator.languages` 做同樣的導向，該頁的語言清單只在停用 JS 時顯示。
 - 語言由網址決定，不在頁面內以 JS 切換文字，搜尋引擎能直接讀到各語言內容。
 
 ## 目錄結構
