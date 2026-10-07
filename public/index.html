@@ -8,7 +8,7 @@
     <meta name="description" content="TinyImage 免費線上圖片壓縮與裁切工具，支援 JPG、PNG、WebP，快速縮小檔案大小並維持畫質。">
     <link rel="canonical" href="https://tinyimage.eat2die.com/">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="stylesheet" href="style.css?v=20261007-2">
+    <link rel="stylesheet" href="style.css?v=20261007-3">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3790828781240420"
         crossorigin="anonymous"></script>
     <!-- Google tag (gtag.js) -->
@@ -129,6 +129,31 @@
 
                 <!-- 裁切設定 -->
                 <div class="settings-panel hidden" id="crop-settings">
+                    <div class="crop-presets" id="crop-presets">
+                        <div class="preset-title" data-i18n="label_crop_preset">常用尺寸</div>
+                        <div class="preset-group">
+                            <span class="preset-platform">Facebook</span>
+                            <button type="button" class="preset-btn" data-width="1080" data-height="1080"><span data-i18n="preset_square">方形 1:1</span><small>1080×1080</small></button>
+                            <button type="button" class="preset-btn" data-width="1080" data-height="1350"><span data-i18n="preset_portrait45">直式 4:5</span><small>1080×1350</small></button>
+                            <button type="button" class="preset-btn" data-width="1200" data-height="630"><span data-i18n="preset_link">連結分享圖</span><small>1200×630</small></button>
+                            <button type="button" class="preset-btn" data-width="851" data-height="315"><span data-i18n="preset_cover">粉專封面</span><small>851×315</small></button>
+                            <button type="button" class="preset-btn" data-width="1080" data-height="1920"><span data-i18n="preset_story">限時動態</span><small>1080×1920</small></button>
+                        </div>
+                        <div class="preset-group">
+                            <span class="preset-platform">Instagram</span>
+                            <button type="button" class="preset-btn" data-width="1080" data-height="1080"><span data-i18n="preset_square">方形 1:1</span><small>1080×1080</small></button>
+                            <button type="button" class="preset-btn" data-width="1080" data-height="1350"><span data-i18n="preset_portrait45">直式 4:5</span><small>1080×1350</small></button>
+                            <button type="button" class="preset-btn" data-width="1080" data-height="566"><span data-i18n="preset_landscape">橫式 1.91:1</span><small>1080×566</small></button>
+                            <button type="button" class="preset-btn" data-width="1080" data-height="1920"><span data-i18n="preset_story_reels">限動／Reels</span><small>1080×1920</small></button>
+                            <button type="button" class="preset-btn" data-width="320" data-height="320"><span data-i18n="preset_profile">大頭貼</span><small>320×320</small></button>
+                        </div>
+                        <div class="preset-group">
+                            <span class="preset-platform">Threads</span>
+                            <button type="button" class="preset-btn" data-width="1080" data-height="1080"><span data-i18n="preset_square">方形 1:1</span><small>1080×1080</small></button>
+                            <button type="button" class="preset-btn" data-width="1080" data-height="1440"><span data-i18n="preset_portrait34">直式 3:4</span><small>1080×1440</small></button>
+                            <button type="button" class="preset-btn" data-width="1080" data-height="1350"><span data-i18n="preset_portrait45">直式 4:5</span><small>1080×1350</small></button>
+                        </div>
+                    </div>
                     <div class="settings-row">
                         <div class="setting-group">
                             <label for="crop-width">
@@ -247,8 +272,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"
         integrity="sha512-XMVd28F1oH/O71fzwBnV7HucLxVwtxf26XV8P4wPk26EDxuGZ91N8bsOttmnomcCD3CS5ZMRL50H0GgOHvegtg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="i18n.js?v=20261007-1"></script>
-    <script src="script.js?v=20261007-1"></script>
+    <script src="i18n.js?v=20261007-3"></script>
+    <script src="script.js?v=20261007-3"></script>
 </body>
 
 </html>

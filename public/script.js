@@ -36,6 +36,33 @@ tabBtns.forEach(btn => {
   });
 });
 
+/* ── Crop Presets：點選後填入裁切寬高 ── */
+const cropWidthInput  = document.getElementById('crop-width');
+const cropHeightInput = document.getElementById('crop-height');
+const presetBtns      = document.querySelectorAll('.preset-btn');
+
+function syncPresetActive(activeBtn) {
+  presetBtns.forEach(btn => {
+    const isActive = btn === activeBtn;
+    btn.classList.toggle('active', isActive);
+    btn.setAttribute('aria-pressed', String(isActive));
+  });
+}
+
+presetBtns.forEach(btn => {
+  btn.setAttribute('aria-pressed', 'false');
+  btn.addEventListener('click', () => {
+    cropWidthInput.value  = btn.dataset.width;
+    cropHeightInput.value = btn.dataset.height;
+    syncPresetActive(btn);
+  });
+});
+
+// 手動修改寬高時取消預設尺寸的選取狀態
+[cropWidthInput, cropHeightInput].forEach(input =>
+  input.addEventListener('input', () => syncPresetActive(null))
+);
+
 /* ── Drag & Drop ── */
 dropZone.addEventListener('dragover', e => {
   e.preventDefault();
