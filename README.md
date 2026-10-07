@@ -1,5 +1,7 @@
 # TinyImage 🖼️
 
+繁體中文 | [English](README.en.md)
+
 圖片壓縮與裁切工具，所有處理都在瀏覽器端完成，支援批次處理、智慧縮放、中文檔名清理。
 
 線上使用：<https://tinyimage.eat2die.com>
