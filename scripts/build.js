@@ -13,7 +13,8 @@ const locales = LOCALE_ORDER.map(slug => require(path.join(root, 'locales', `${s
 const template = fs.readFileSync(path.join(root, 'templates', 'page.html'), 'utf8');
 
 const pageUrl = loc => `${SITE}/${loc.slug}/`;
-const ROOT_URL = `${SITE}/`;
+// x-default 指向預設語言（英文）頁面；/ 會 302 導向，不能作為 hreflang 目標
+const X_DEFAULT_URL = `${SITE}/en/`;
 
 function esc(str) {
   return String(str)
@@ -41,7 +42,7 @@ const indent = (n, lines) => lines.map(l => ' '.repeat(n) + l).join('\n');
 function hreflangLinks() {
   return indent(4, [
     ...locales.map(l => `<link rel="alternate" hreflang="${l.hreflang}" href="${pageUrl(l)}">`),
-    `<link rel="alternate" hreflang="x-default" href="${ROOT_URL}">`,
+    `<link rel="alternate" hreflang="x-default" href="${X_DEFAULT_URL}">`,
   ]);
 }
 
@@ -147,7 +148,7 @@ function buildRootPage() {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TinyImage — Free Online Image Compressor &amp; Cropper</title>
     <meta name="description" content="Free online image compressor and cropper that runs entirely in your browser. Available in 繁體中文, English, 日本語, 한국어, Español and Português.">
-    <link rel="canonical" href="${ROOT_URL}">
+    <link rel="canonical" href="${X_DEFAULT_URL}">
 ${hreflangLinks()}
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="stylesheet" href="/style.css?v=${VERSION}">
@@ -186,9 +187,9 @@ function buildSitemap() {
   const today = new Date().toLocaleDateString('sv-SE'); // 本地日期 YYYY-MM-DD
   const alternates = indent(4, [
     ...locales.map(l => `<xhtml:link rel="alternate" hreflang="${l.hreflang}" href="${pageUrl(l)}"/>`),
-    `<xhtml:link rel="alternate" hreflang="x-default" href="${ROOT_URL}"/>`,
+    `<xhtml:link rel="alternate" hreflang="x-default" href="${X_DEFAULT_URL}"/>`,
   ]);
-  // / 會自動導向，不列入 sitemap，只作為 hreflang 的 x-default
+  // / 會自動導向，不列入 sitemap
   const urls = locales.map(pageUrl).map(loc => `  <url>
     <loc>${loc}</loc>
     <lastmod>${today}</lastmod>
