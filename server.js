@@ -6,6 +6,7 @@ app.disable('x-powered-by'); // 避免揭露伺服器框架版本資訊
 
 // 支援的語言頁面（對應 public/<slug>/index.html）
 const LOCALES = ['zh-tw', 'en', 'ja', 'ko', 'es', 'pt'];
+const DEFAULT_LOCALE = 'en';
 
 // 將 Accept-Language 的語言標籤對應到網站語言
 function matchLocale(tag) {
@@ -36,12 +37,13 @@ function localeFromCookie(header = '') {
   return m && LOCALES.includes(m[1]) ? m[1] : null;
 }
 
-// 首頁：依使用者選過的語言或瀏覽器語言導向；無法判斷時（例如搜尋引擎爬蟲）顯示 x-default 語言選擇頁
-app.get('/', (req, res, next) => {
+// 首頁：依使用者選過的語言或瀏覽器語言導向，無法判斷時預設為英文
+app.get('/', (req, res) => {
   res.set('Vary', 'Accept-Language, Cookie');
-  const loc = localeFromCookie(req.headers.cookie) || localeFromAcceptLanguage(req.headers['accept-language']);
-  if (loc) return res.redirect(302, `/${loc}/`);
-  next();
+  const loc = localeFromCookie(req.headers.cookie)
+    || localeFromAcceptLanguage(req.headers['accept-language'])
+    || DEFAULT_LOCALE;
+  res.redirect(302, `/${loc}/`);
 });
 
 // 圖片處理全部在瀏覽器端完成，伺服器只提供靜態檔案

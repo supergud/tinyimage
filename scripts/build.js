@@ -113,7 +113,27 @@ function buildPage(loc) {
   });
 }
 
-// x-default：沒有語言偏好（例如搜尋引擎爬蟲）時顯示的語言選擇頁
+// 靜態主機（沒有 server.js 導向）時的前端導向：cookie → 瀏覽器語言 → 預設英文
+function rootRedirectScript() {
+  const slugs = JSON.stringify(locales.map(l => l.slug));
+  return `
+        (function () {
+            var slugs = ${slugs};
+            var m = document.cookie.match(/(?:^|;\\s*)tinyimage_lang=([\\w-]+)/);
+            var loc = m && slugs.indexOf(m[1]) !== -1 ? m[1] : null;
+            var langs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ''];
+            for (var i = 0; !loc && i < langs.length; i++) {
+                var tag = String(langs[i]).toLowerCase();
+                var base = tag.split('-')[0];
+                if (base === 'zh') loc = 'zh-tw';
+                else if (slugs.indexOf(base) !== -1) loc = base;
+            }
+            location.replace('/' + (loc || 'en') + '/');
+        })();
+    `;
+}
+
+// x-default：首頁會依瀏覽器語言導向（預設英文），此頁內容只在導向前或停用 JS 時顯示
 function buildRootPage() {
   const items = locales.map(l =>
     `<li><a class="picker-link" href="/${l.slug}/" hreflang="${l.hreflang}" lang="${l.htmlLang}" data-lang="${l.slug}">` +
@@ -131,13 +151,7 @@ function buildRootPage() {
 ${hreflangLinks()}
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="stylesheet" href="/style.css?v=${VERSION}">
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7Z28EXGCYH"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-7Z28EXGCYH');
-    </script>
+    <script>${rootRedirectScript()}</script>
 </head>
 
 <body>
@@ -169,12 +183,13 @@ ${indent(16, items)}
 }
 
 function buildSitemap() {
-  const today = new Date().toISOString().slice(0, 10);
+  const today = new Date().toLocaleDateString('sv-SE'); // 本地日期 YYYY-MM-DD
   const alternates = indent(4, [
     ...locales.map(l => `<xhtml:link rel="alternate" hreflang="${l.hreflang}" href="${pageUrl(l)}"/>`),
     `<xhtml:link rel="alternate" hreflang="x-default" href="${ROOT_URL}"/>`,
   ]);
-  const urls = [ROOT_URL, ...locales.map(pageUrl)].map(loc => `  <url>
+  // / 會自動導向，不列入 sitemap，只作為 hreflang 的 x-default
+  const urls = locales.map(pageUrl).map(loc => `  <url>
     <loc>${loc}</loc>
     <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>

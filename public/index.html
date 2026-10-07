@@ -17,12 +17,20 @@
     <link rel="alternate" hreflang="x-default" href="https://tinyimage.eat2die.com/">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="stylesheet" href="/style.css?v=20261007-5">
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7Z28EXGCYH"></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-7Z28EXGCYH');
+        (function () {
+            var slugs = ["zh-tw","en","ja","ko","es","pt"];
+            var m = document.cookie.match(/(?:^|;\s*)tinyimage_lang=([\w-]+)/);
+            var loc = m && slugs.indexOf(m[1]) !== -1 ? m[1] : null;
+            var langs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ''];
+            for (var i = 0; !loc && i < langs.length; i++) {
+                var tag = String(langs[i]).toLowerCase();
+                var base = tag.split('-')[0];
+                if (base === 'zh') loc = 'zh-tw';
+                else if (slugs.indexOf(base) !== -1) loc = base;
+            }
+            location.replace('/' + (loc || 'en') + '/');
+        })();
     </script>
 </head>
 
