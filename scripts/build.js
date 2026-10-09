@@ -4,7 +4,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 
 const SITE = 'https://tinyimage.eat2die.com';
-const VERSION = '20261007-5'; // CSS／JS 快取版本參數，修改 style.css 或 script.js 時一併更新
+const VERSION = '20261009-1'; // CSS／JS 快取版本參數，修改 style.css 或 script.js 時一併更新
 const LOCALE_ORDER = ['zh-tw', 'en', 'ja', 'ko', 'es', 'pt'];
 
 const root = path.join(__dirname, '..');
