@@ -865,9 +865,17 @@ body {
     margin-top: 40px;
 }
 
+/* 第一個介紹區塊前加分隔線，與工具操作區分開 */
+.file-list-section + .seo-section {
+    margin-top: 64px;
+    padding-top: 40px;
+    border-top: 1px solid var(--border);
+}
+
 .seo-section h2 {
-    font-size: 1.25rem;
-    font-weight: 800;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-muted);
     margin-bottom: 12px;
 }
 
